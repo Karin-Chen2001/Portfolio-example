@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳語彤 Karin | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #fcf9f2;       /* 明亮米沙白 */
+            --card-bg: #ffffff;         /* 純白卡片襯托清晰度 */
+            --primary-text: #2d2a26;    /* 深木褐文字 */
+            --accent-orange: #e07a5f;   /* 活潑焦糖橙 */
+            --accent-green: #81b29a;    /* 活潑森林綠 */
+            --accent-yellow: #f4a261;   /* 溫暖陽光黃 */
+            --text-muted: #6d6875;      /* 柔和灰紫棕 */
+            --border-color: #f1e9db;    /* 邊框線條 */
+            --shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 3.5rem 1.5rem;
+            background: linear-gradient(135deg, #f4a26122, #81b29a22);
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-orange);
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-text);
+            margin-bottom: 0.4rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-text);
+        }
+
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 24px;
+            background-color: var(--accent-orange);
+            border-radius: 4px;
+        }
+
+        .about-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-text {
+            color: var(--primary-text);
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .skill-card h3 {
+            color: var(--accent-green);
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #e07a5f22, #f4a26122);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-orange);
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        .portfolio-info {
+            padding: 1.4rem;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
+        }
+
+        .portfolio-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2.5rem 1rem;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-orange);
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            background-color: #d0694e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="badge">DESIGN & MEDIA</span>
+            <h1>陳語彤 Karin</h1>
+            <p>視覺傳達與媒體設計作品集 | Personal Portfolio</p>
+        </header>
+
+        <section>
+            <h2 class="section-title">關於我 / About Karin</h2>
+            <div class="about-card">
+                <p class="about-text">
+                    嗨！我是陳語彤 Karin，一位熱愛視覺設計、影像紀錄與數位媒體創新的設計者！
+                </p>
+                <p class="about-text">
+                    擁有跨國生活背景與豐富的實務經驗，擅長捕捉畫面中的光影細節與情感故事。具備獨立影像後製、數位媒體企劃與專案管理能力，致力於將溫暖活潑的大地美學融入商業設計中！
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">專業技能 / Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>📷 影像製作與調色</h3>
+                    <p>精通 Adobe Lightroom 攝影調光調色、影像優化與高質感人像修飾。</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🎬 動態影音剪輯</h3>
+                    <p>熟練使用 CapCut、InShot 進行短影音企劃、節奏剪輯與社群內容製作。</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📊 專案與數據管理</h3>
+                    <p>靈活運用 Excel 與數據工具進行專案時程控管、精準計算與檔案歸檔。</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">精選作品 / Featured Works</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-img">✨ 人像寫真與光影紀錄</div>
+                    <div class="portfolio-info">
+                        <h3>畢業寫真與情感捕捉</h3>
+                        <p>專注於自然光影抓拍與人物情感表達，完成多組畢業寫真系列與質感調色創作。</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-img">📱 社群動態影音企劃</div>
+                    <div class="portfolio-info">
+                        <h3>短影音內容剪輯與設計</h3>
+                        <p>針對現代社群平台特性製作快節奏、高互動性的影音視覺內容。</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-img">🎵 跨文化藝術交流</div>
+                    <div class="portfolio-info">
+                        <h3>音樂與文化策展視覺設計</h3>
+                        <p>結合音樂演奏與文化推廣，規劃具故事性的活動視覺與推廣素材。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>想進一步合作或交流？歡迎聯絡我！</p>
+            <a href="mailto:your-email@example.com" class="contact-btn">寄信給 Karin</a>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem;">© 2026 陳語彤 Karin. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
