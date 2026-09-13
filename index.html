@@ -3,280 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>陳語彤 Karin | Portfolio</title>
+    <title>陳語彤 Karin | 視覺影像與媒體設計  個人作品集</title>
+    <!-- 引入 Google Fonts 輔助英文字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #2b1e1a;       /* 濃郁深咖啡底色 */
-            --card-bg: #3a2b25;         /* 暖咖啡卡片背景 */
-            --primary-text: #f5efe6;    /* 明亮奶燕麥文字 (確保清晰度) */
-            --accent-orange: #e07a5f;   /* 焦糖橙 */
-            --accent-gold: #e6b89c;     /* 暖金奶茶色 */
-            --accent-green: #90a955;    /* 鼠尾草綠 */
-            --text-muted: #d3c4b5;      /* 柔和淺啡色文字 */
-            --border-color: #4a3831;    /* 深咖啡邊框線條 */
-            --shadow: 0 8px 20px rgba(0,0,0,0.25);
-        }
-
+        /* 全頁指定文鼎DC蔡燊軒行書體 */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: "文鼎DC蔡燊軒行書體", "AR TsaiShenHsuanXingBook", "KaiTi", "標楷體", "Cormorant Garamond", serif;
+        }
+
+        :root {
+            /* 舒服放鬆的溫暖奶茶色系 */
+            --bg-base: #f7f3ed;           /* 柔和燕麥奶茶色 */
+            --card-bg: rgba(255, 253, 249, 0.88); /* 半透明高質感白奶茶卡片 */
+            --card-border: rgba(222, 211, 196, 0.6);
+            --text-main: #3d3229;         /* 濃郁深濃縮咖啡棕 */
+            --text-sub: #7a6a5d;          /* 暖可可灰棕 */
+            --accent-warm: #c68b59;       /* 暖焦糖奶茶色 */
+            --accent-soft: #8c9e88;       /* 鼠尾草植物綠 */
+            --shadow-soft: 0 20px 40px rgba(61, 50, 41, 0.05);
+            --shadow-hover: 0 30px 60px rgba(61, 50, 41, 0.1);
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--primary-text);
-            line-height: 1.7;
-            padding: 2rem 1rem;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.8;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* 滿版文青感背景圖片：陽光、竹椅、植物與家質感 */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(
+                to bottom,
+                rgba(247, 243, 237, 0.78),
+                rgba(247, 243, 237, 0.88)
+            ), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1140px;
             margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
+        /* 歐美當代個人品牌主視覺區 */
         header {
+            margin-bottom: 5rem;
             text-align: center;
-            padding: 3.5rem 1.5rem;
-            background: linear-gradient(135deg, #3a2b25, #4a342c);
-            border-radius: 20px;
-            margin-bottom: 2.5rem;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
+            padding: 4.5rem 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-soft);
         }
 
-        .badge {
+        .tag-pill {
             display: inline-block;
-            background-color: var(--accent-orange);
-            color: #fff;
-            padding: 0.3rem 1rem;
+            padding: 0.4rem 1.4rem;
+            background-color: rgba(198, 139, 89, 0.15);
+            color: var(--accent-warm);
             border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
+            font-size: 1.05rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
         }
 
         header h1 {
-            font-size: 2.8rem;
-            color: #ffffff;
-            margin-bottom: 0.4rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            font-weight: 500;
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            margin: 2.5rem 0 1.2rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #ffffff;
-        }
-
-        .section-title::before {
-            content: "";
-            display: inline-block;
-            width: 12px;
-            height: 24px;
-            background-color: var(--accent-orange);
-            border-radius: 4px;
-        }
-
-        .about-card {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-
-        .about-text {
-            color: var(--primary-text);
-            font-size: 1.05rem;
+            font-size: 3.5rem;
+            font-weight: normal;
+            letter-spacing: 3px;
+            color: var(--text-main);
             margin-bottom: 0.8rem;
         }
 
-        .skills-grid {
+        header p.subtitle {
+            font-size: 1.4rem;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+            white-space: pre-wrap;
+        }
+
+        /* 歐美非對稱版面配置 */
+        .grid-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
         }
 
-        .skill-card {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
+        @media (max-width: 900px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .skill-card:hover {
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            padding: 2.8rem;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            box-shadow: var(--shadow-hover);
             transform: translateY(-4px);
         }
 
-        .skill-card h3 {
-            color: var(--accent-gold);
-            margin-bottom: 0.6rem;
-            font-size: 1.2rem;
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--card-border);
         }
 
-        .skill-card p {
-            color: var(--text-muted);
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-warm);
         }
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        .about-text {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 1.2rem;
+            line-height: 2;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
             gap: 1.5rem;
         }
 
-        .portfolio-card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
+        .skill-item {
+            padding: 1.2rem 1.5rem;
+            background: rgba(247, 243, 237, 0.6);
+            border-radius: 14px;
+            border-left: 4px solid var(--accent-warm);
+        }
+
+        .skill-item h3 {
+            font-size: 1.35rem;
+            color: var(--text-main);
+            margin-bottom: 0.4rem;
+        }
+
+        .skill-item p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+        }
+
+        .works-section {
+            margin-top: 5rem;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
             overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
         }
 
-        .portfolio-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .portfolio-img {
+        .work-thumb {
             width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, #4a342c, #5c4035);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-gold);
-            font-weight: bold;
-            font-size: 1.05rem;
-            border-bottom: 1px solid var(--border-color);
+            height: 220px;
+            background-position: center;
+            background-size: cover;
         }
 
-        .portfolio-info {
-            padding: 1.4rem;
+        .thumb-1 {
+            background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop');
         }
 
-        .portfolio-info h3 {
-            margin-bottom: 0.5rem;
-            color: #ffffff;
+        .thumb-2 {
+            background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop');
         }
 
-        .portfolio-info p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .thumb-3 {
+            background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .work-content {
+            padding: 2rem;
+        }
+
+        .work-content h3 {
+            font-size: 1.45rem;
+            color: var(--text-main);
+            margin-bottom: 0.6rem;
+        }
+
+        .work-content p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            line-height: 1.7;
         }
 
         footer {
+            margin-top: 6rem;
             text-align: center;
-            margin-top: 4rem;
-            padding: 2.5rem 1rem;
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
+            padding: 4rem 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-soft);
+        }
+
+        footer h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            margin-bottom: 2rem;
         }
 
         .contact-btn {
             display: inline-block;
-            margin-top: 1rem;
-            padding: 0.8rem 2rem;
-            background-color: var(--accent-orange);
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-warm);
             color: #ffffff;
-            font-weight: bold;
+            font-size: 1.25rem;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.4);
-            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 10px 20px rgba(198, 139, 89, 0.3);
+            transition: all 0.3s ease;
         }
 
         .contact-btn:hover {
-            transform: scale(1.05);
-            background-color: #d0694e;
+            background-color: #b57a4a;
+            transform: scale(1.04);
         }
     </style>
 </head>
 <body>
+
+    <div class="bg-overlay"></div>
+
     <div class="container">
         <header>
-            <span class="badge">DESIGN & MEDIA</span>
+            <span class="badge tag-pill">CREATIVE PORTFOLIO</span>
             <h1>陳語彤 Karin</h1>
-            <p>視覺傳達與媒體設計作品集 | Personal Portfolio</p>
+            <p class="subtitle">視覺影像與媒體設計  個人作品集</p>
         </header>
 
-        <section>
-            <h2 class="section-title">關於我 / About Karin</h2>
-            <div class="about-card">
+        <div class="grid-layout">
+            <div class="glass-card">
+                <h2 class="section-title">關於我 / About</h2>
                 <p class="about-text">
-                    嗨！我是陳語彤 Karin，一位熱愛視覺設計、影像紀錄與數位媒體創新的設計者！
+                    你好！我是陳語彤 Karin，專注於視覺影像、光影美學與數位媒體內容創作。
                 </p>
                 <p class="about-text">
-                    擁有跨國生活背景與豐富的實務經驗，擅長捕捉畫面中的光影細節與情感故事。具備獨立影像後製、數位媒體企劃與專案管理能力，致力於將溫暖醇厚的咖啡美學與視覺藝術融入商業設計中！
+                    擁有豐富的跨國生活視野與實務經驗，擅長捕捉自然的溫暖質感與敘事情感。致力於將溫柔的奶茶大地色美學與當代媒體設計結合，傳遞具備感染力的視覺體驗。
                 </p>
             </div>
-        </section>
 
-        <section>
-            <h2 class="section-title">專業技能 / Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>📷 影像製作與調色</h3>
-                    <p>精通 Adobe Lightroom 攝影調光調色、影像優化與高質感人像修飾。</p>
-                </div>
-                <div class="skill-card">
-                    <h3>🎬 動態影音剪輯</h3>
-                    <p>熟練使用 CapCut、InShot 進行短影音企劃、節奏剪輯與社群內容製作。</p>
-                </div>
-                <div class="skill-card">
-                    <h3>📊 專案與數據管理</h3>
-                    <p>靈活運用 Excel 與數據工具進行專案時程控管、精準計算與檔案歸檔。</p>
+            <div class="glass-card">
+                <h2 class="section-title">專業技能 / Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <h3>📷 影像製作與調色 (Image & Color Grading)</h3>
+                        <p>精通 Adobe Lightroom 攝影光影優化、自然調光與高質感人像調色。</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>🎬 動態影音剪輯 (Video Production)</h3>
+                        <p>熟練使用 CapCut、InShot 進行短影音企劃、敘事節奏剪輯與社群視覺設計。</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>📊 專案與數據管理 (Project Management)</h3>
+                        <p>靈活運用 Excel 與數據工具進行專案時程控管、精準計算與檔案歸檔系統化。</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2 class="section-title">精選作品 / Featured Works</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <div class="portfolio-img">✨ 人像寫真與光影紀錄</div>
-                    <div class="portfolio-info">
-                        <h3>畢業寫真與情感捕捉</h3>
-                        <p>專注於自然光影抓拍與人物情感表達，完成多組畢業寫真系列與質感調色創作。</p>
+        <section class="works-section">
+            <div class="glass-card">
+                <h2 class="section-title">精選作品 / Works</h2>
+                <div class="works-grid">
+                    <div class="work-card">
+                        <div class="work-thumb thumb-1"></div>
+                        <div class="work-content">
+                            <h3>畢業寫真與光影紀錄</h3>
+                            <p>專注於自然日光抓拍與人物情感表達，完成多組畢業寫真系列與質感調色創作。</p>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-card">
-                    <div class="portfolio-img">📱 社群動態影音企劃</div>
-                    <div class="portfolio-info">
-                        <h3>短影音內容剪輯與設計</h3>
-                        <p>針對現代社群平台特性製作快節奏、高互動性的影音視覺內容。</p>
+                    <div class="work-card">
+                        <div class="work-thumb thumb-2"></div>
+                        <div class="work-content">
+                            <h3>短影音動態企劃</h3>
+                            <p>針對當代社群平台視覺特性，製作兼具快節奏與美學氛圍的影音內容。</p>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-card">
-                    <div class="portfolio-img">🎵 跨文化藝術交流</div>
-                    <div class="portfolio-info">
-                        <h3>音樂與文化策展視覺設計</h3>
-                        <p>結合音樂演奏與文化推廣，規劃具故事性的活動視覺與推廣素材。</p>
+                    <div class="work-card">
+                        <div class="work-thumb thumb-3"></div>
+                        <div class="work-content">
+                            <h3>藝術展演與文化視覺</h3>
+                            <p>結合音樂演奏與視覺企劃，規劃具故事敘事性的展演視覺與推廣素材。</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p>想進一步合作或交流？歡迎聯絡我！</p>
+            <h2>Let's Create Together</h2>
+            <p>想了解更多作品細節或合作交流？歡迎隨時與我聯絡！</p>
             <a href="mailto:your-email@example.com" class="contact-btn">寄信給 Karin</a>
-            <p style="margin-top: 1.5rem; font-size: 0.85rem;">© 2026 陳語彤 Karin. All rights reserved.</p>
+            <p style="margin-top: 2.5rem; font-size: 0.95rem; color: var(--text-sub);">© 2026 陳語彤 Karin. All rights reserved.</p>
         </footer>
     </div>
+
 </body>
 </html>
