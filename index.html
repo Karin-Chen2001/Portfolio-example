@@ -6,15 +6,15 @@
     <title>陳語彤 Karin | Portfolio</title>
     <style>
         :root {
-            --bg-color: #fcf9f2;       /* 明亮米沙白 */
-            --card-bg: #ffffff;         /* 純白卡片襯托清晰度 */
-            --primary-text: #2d2a26;    /* 深木褐文字 */
-            --accent-orange: #e07a5f;   /* 活潑焦糖橙 */
-            --accent-green: #81b29a;    /* 活潑森林綠 */
-            --accent-yellow: #f4a261;   /* 溫暖陽光黃 */
-            --text-muted: #6d6875;      /* 柔和灰紫棕 */
-            --border-color: #f1e9db;    /* 邊框線條 */
-            --shadow: 0 8px 20px rgba(0,0,0,0.05);
+            --bg-color: #2b1e1a;       /* 濃郁深咖啡底色 */
+            --card-bg: #3a2b25;         /* 暖咖啡卡片背景 */
+            --primary-text: #f5efe6;    /* 明亮奶燕麥文字 (確保清晰度) */
+            --accent-orange: #e07a5f;   /* 焦糖橙 */
+            --accent-gold: #e6b89c;     /* 暖金奶茶色 */
+            --accent-green: #90a955;    /* 鼠尾草綠 */
+            --text-muted: #d3c4b5;      /* 柔和淺啡色文字 */
+            --border-color: #4a3831;    /* 深咖啡邊框線條 */
+            --shadow: 0 8px 20px rgba(0,0,0,0.25);
         }
 
         * {
@@ -39,10 +39,11 @@
         header {
             text-align: center;
             padding: 3.5rem 1.5rem;
-            background: linear-gradient(135deg, #f4a26122, #81b29a22);
+            background: linear-gradient(135deg, #3a2b25, #4a342c);
             border-radius: 20px;
             margin-bottom: 2.5rem;
             border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
         }
 
         .badge {
@@ -59,13 +60,13 @@
 
         header h1 {
             font-size: 2.8rem;
-            color: var(--primary-text);
+            color: #ffffff;
             margin-bottom: 0.4rem;
         }
 
         header p {
             font-size: 1.2rem;
-            color: var(--text-muted);
+            color: var(--accent-gold);
             font-weight: 500;
         }
 
@@ -75,7 +76,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--primary-text);
+            color: #ffffff;
         }
 
         .section-title::before {
@@ -121,9 +122,13 @@
         }
 
         .skill-card h3 {
-            color: var(--accent-green);
+            color: var(--accent-gold);
             margin-bottom: 0.6rem;
             font-size: 1.2rem;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
         }
 
         .portfolio-grid {
@@ -143,19 +148,20 @@
 
         .portfolio-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
         }
 
         .portfolio-img {
             width: 100%;
             height: 180px;
-            background: linear-gradient(135deg, #e07a5f22, #f4a26122);
+            background: linear-gradient(135deg, #4a342c, #5c4035);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-orange);
+            color: var(--accent-gold);
             font-weight: bold;
             font-size: 1.05rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .portfolio-info {
@@ -164,7 +170,7 @@
 
         .portfolio-info h3 {
             margin-bottom: 0.5rem;
-            color: var(--primary-text);
+            color: #ffffff;
         }
 
         .portfolio-info p {
@@ -191,7 +197,7 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.3);
+            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.4);
             transition: transform 0.2s, background-color 0.2s;
         }
 
@@ -216,7 +222,7 @@
                     嗨！我是陳語彤 Karin，一位熱愛視覺設計、影像紀錄與數位媒體創新的設計者！
                 </p>
                 <p class="about-text">
-                    擁有跨國生活背景與豐富的實務經驗，擅長捕捉畫面中的光影細節與情感故事。具備獨立影像後製、數位媒體企劃與專案管理能力，致力於將溫暖活潑的大地美學融入商業設計中！
+                    擁有跨國生活背景與豐富的實務經驗，擅長捕捉畫面中的光影細節與情感故事。具備獨立影像後製、數位媒體企劃與專案管理能力，致力於將溫暖醇厚的咖啡美學與視覺藝術融入商業設計中！
                 </p>
             </div>
         </section>
