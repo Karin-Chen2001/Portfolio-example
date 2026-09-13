@@ -56,7 +56,7 @@
 
 ## ✉️ 聯絡方式 (Contact)
 
-* **Email:** [yutungchen.official@gmail.com](mailto:yutungchen.official@gmail.com)
+* **Email:** [u11517028@go.utaipei.edu.tw](mailto:yutungchen.official@gmail.com)
 * **GitHub:** [@Karin-Chen2001](https://github.com/Karin-Chen2001)
 
 ---
