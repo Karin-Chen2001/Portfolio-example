@@ -63,6 +63,15 @@
             padding: 4rem 2rem;
         }
 
+        /* 頁面切換控制 */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
         /* 主視覺區 */
         header {
             margin-bottom: 5rem;
@@ -198,6 +207,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-soft);
             transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .work-card:hover {
@@ -225,6 +235,10 @@
             background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop');
         }
 
+        .thumb-4 {
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop');
+        }
+
         .work-content {
             padding: 2rem;
         }
@@ -239,6 +253,62 @@
             font-size: 1.1rem;
             color: var(--text-sub);
             line-height: 1.7;
+        }
+
+        /* 細部頁面專用樣式 */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--morandi-coffee-dark);
+            color: var(--text-light);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--accent-warm);
+            color: #ffffff;
+            transform: translateX(-4px);
+        }
+
+        .detail-header-img {
+            width: 100%;
+            height: 350px;
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--card-border);
+        }
+
+        .detail-content h3 {
+            font-size: 1.6rem;
+            color: var(--accent-warm);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .detail-content p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 2;
+        }
+
+        .detail-content ul {
+            margin-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-content li {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
         }
 
         /* Footer 聯絡資訊樣式調整 */
@@ -415,71 +485,113 @@
     <div class="bg-overlay"></div>
 
     <div class="container">
-        <header>
-            <span class="badge tag-pill">CREATIVE PORTFOLIO</span>
-            <h1>陳語彤 Karin</h1>
-            <p class="subtitle">視覺影像與媒體設計  個人作品集</p>
-        </header>
+        <!-- 主頁面 -->
+        <div id="homePage" class="page active">
+            <header>
+                <span class="badge tag-pill">CREATIVE PORTFOLIO</span>
+                <h1>陳語彤 Karin</h1>
+                <p class="subtitle">視覺影像與媒體設計  個人作品集</p>
+            </header>
 
-        <div class="grid-layout">
-            <div class="glass-card">
-                <h2 class="section-title">關於我 / About</h2>
-                <p class="about-text">
-                    你好！我是陳語彤 Karin，專注於視覺影像、光影美學與數位媒體內容創作。
-                </p>
-                <p class="about-text">
-                    擁有豐富的跨國生活視野與實務經驗，擅長捕捉自然的溫暖質感與敘事情感。致力於將莫蘭迪咖啡色調沉穩的美學與當代媒體設計結合，傳遞具備感染力的視覺體驗。
-                </p>
+            <div class="grid-layout">
+                <div class="glass-card">
+                    <h2 class="section-title">關於我 / About</h2>
+                    <p class="about-text">
+                        你好！我是陳語彤 Karin，專注於視覺影像、光影美學與數位媒體內容創作。
+                    </p>
+                    <p class="about-text">
+                        擁有豐富的跨國生活視野與實務經驗，擅長捕捉自然的溫暖質感與敘事情感。致力於將莫蘭迪咖啡色調沉穩的美學與當代媒體設計結合，傳遞具備感染力的視覺體驗。
+                    </p>
+                </div>
+
+                <div class="glass-card">
+                    <h2 class="section-title">專業技能 / Skills</h2>
+                    <div class="skills-container">
+                        <div class="skill-item">
+                            <h3>📷 影像製作與調色 (Image & Color Grading)</h3>
+                            <p>精通 Adobe Lightroom 攝影光影優化、自然調光與高質感人像調色。</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>🎬 動態影音剪輯 (Video Production)</h3>
+                            <p>熟練使用 CapCut、InShot 進行短影音企劃、敘事節奏剪輯與社群視覺設計。</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>📊 專案與數據管理 (Project Management)</h3>
+                            <p>靈活運用 Excel 與數據工具進行專案時程控管、精準計算與檔案歸檔系統化。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+            <section class="works-section">
+                <div class="glass-card">
+                    <h2 class="section-title">精選作品 / Works</h2>
+                    <div class="works-grid">
+                        <div class="work-card">
+                            <div class="work-thumb thumb-1"></div>
+                            <div class="work-content">
+                                <h3>畢業寫真與光影紀錄</h3>
+                                <p>專注於自然日光抓拍與人物情感表達，完成多組畢業寫真系列與質感調色創作。</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <div class="work-thumb thumb-2"></div>
+                            <div class="work-content">
+                                <h3>短影音動態企劃</h3>
+                                <p>針對當代社群平台視覺特性，製作兼具快節奏與美學氛圍的影音內容。</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <div class="work-thumb thumb-3"></div>
+                            <div class="work-content">
+                                <h3>藝術展演與文化視覺</h3>
+                                <p>結合音樂演奏與視覺企劃，規劃具故事敘事性的展演視覺與推廣素材。</p>
+                            </div>
+                        </div>
+
+                        <!-- 數位科技概論作業卡片（點擊切換頁面） -->
+                        <div class="work-card" id="techHomeworkCard">
+                            <div class="work-thumb thumb-4"></div>
+                            <div class="work-content">
+                                <h3>數位科技概論作業 ➔</h3>
+                                <p>結合 GitHub 專案開發、網頁語法實作與莫蘭迪美學視覺排版設計。（點擊前往作業專頁）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 數位科技概論作業 - 細部頁面 -->
+        <div id="detailPage" class="page">
+            <button class="back-btn" id="backBtn">← 返回作品集首頁</button>
+            
             <div class="glass-card">
-                <h2 class="section-title">專業技能 / Skills</h2>
-                <div class="skills-container">
-                    <div class="skill-item">
-                        <h3>📷 影像製作與調色 (Image & Color Grading)</h3>
-                        <p>精通 Adobe Lightroom 攝影光影優化、自然調光與高質感人像調色。</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>🎬 動態影音剪輯 (Video Production)</h3>
-                        <p>熟練使用 CapCut、InShot 進行短影音企劃、敘事節奏剪輯與社群視覺設計。</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>📊 專案與數據管理 (Project Management)</h3>
-                        <p>靈活運用 Excel 與數據工具進行專案時程控管、精準計算與檔案歸檔系統化。</p>
-                    </div>
+                <div class="detail-header-img"></div>
+                <h1 class="section-title">數位科技概論作業 - 網頁開發與專案實務</h1>
+                
+                <div class="detail-content">
+                    <p>
+                        本專案為數位科技概論課程之核心作業成果，旨在展示現代網頁前端開發技術、版本控制流程以及莫蘭迪美學視覺設計的整合實作。
+                    </p>
+
+                    <h3>📌 專案設計理念與架構</h3>
+                    <p>
+                        以簡約高質感的深黑與莫蘭迪咖啡色為主調，著重於響應式排版（Responsive Design）與優質的用戶互動體驗。
+                    </p>
+
+                    <h3>🛠️ 使用技術與開發重點</h3>
+                    <ul>
+                        <li><strong>GitHub 版本控制：</strong>使用 Git 進行專案版本控管、程式碼同步與架構優化。</li>
+                        <li><strong>HTML5 語意化結構：</strong>打造清楚且利於搜尋引擎優化（SEO）的內容架構。</li>
+                        <li><strong>CSS3 莫蘭迪視覺與響應式系統：</strong>採用 CSS Grid 與 Flexbox 實現跨裝置流暢適配。</li>
+                        <li><strong>JavaScript 動態互動：</strong>包含大頭照即時預覽、單頁應用（SPA）無縫頁面切換機制。</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <section class="works-section">
-            <div class="glass-card">
-                <h2 class="section-title">精選作品 / Works</h2>
-                <div class="works-grid">
-                    <div class="work-card">
-                        <div class="work-thumb thumb-1"></div>
-                        <div class="work-content">
-                            <h3>畢業寫真與光影紀錄</h3>
-                            <p>專注於自然日光抓拍與人物情感表達，完成多組畢業寫真系列與質感調色創作。</p>
-                        </div>
-                    </div>
-                    <div class="work-card">
-                        <div class="work-thumb thumb-2"></div>
-                        <div class="work-content">
-                            <h3>短影音動態企劃</h3>
-                            <p>針對當代社群平台視覺特性，製作兼具快節奏與美學氛圍的影音內容。</p>
-                        </div>
-                    </div>
-                    <div class="work-card">
-                        <div class="work-thumb thumb-3"></div>
-                        <div class="work-content">
-                            <h3>藝術展演與文化視覺</h3>
-                            <p>結合音樂演奏與視覺企劃，規劃具故事敘事性的展演視覺與推廣素材。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- 全頁通用 Footer -->
         <footer>
             <h2>Let's Connect</h2>
             <p class="footer-intro">想了解更多作品細節與合作交流，歡迎隨時與我聯繫！</p>
@@ -519,8 +631,9 @@
         </footer>
     </div>
 
-    <!-- 頭像即時預覽腳本 -->
+    <!-- 腳本區塊 -->
     <script>
+        // 頭像即時預覽腳本
         const avatarInput = document.getElementById('avatarInput');
         const avatarImage = document.getElementById('avatarImage');
         const avatarPlaceholder = document.getElementById('avatarPlaceholder');
@@ -536,6 +649,26 @@
                 }
                 reader.readAsDataURL(file);
             }
+        });
+
+        // 頁面切換控制腳本
+        const homePage = document.getElementById('homePage');
+        const detailPage = document.getElementById('detailPage');
+        const homeworkCard = document.getElementById('techHomeworkCard');
+        const backBtn = document.getElementById('backBtn');
+
+        // 點擊卡片前往作業專頁
+        homeworkCard.addEventListener('click', function() {
+            homePage.classList.remove('active');
+            detailPage.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 點擊按鈕返回首頁
+        backBtn.addEventListener('click', function() {
+            detailPage.classList.remove('active');
+            homePage.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
