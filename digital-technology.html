@@ -6,7 +6,7 @@
     <title>數位科技概論作業 - 網頁開發與專案實務 | 陳語彤 Karin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -119,7 +119,7 @@
         .detail-content h3 {
             font-size: 1.6rem;
             color: var(--accent-warm);
-            margin: 2rem 0 1rem 0;
+            margin: 2.5rem 0 1rem 0;
         }
 
         .detail-content p {
@@ -139,6 +139,41 @@
             color: var(--text-sub);
             margin-bottom: 0.8rem;
             line-height: 1.8;
+        }
+
+        /* 檔案樹狀結構專屬樣式 */
+        .tree-code-block {
+            background-color: #1e1e1e;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 1.5rem 0 2.5rem 0;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .tree-code-block pre {
+            font-family: 'Fira Code', 'Courier New', Consolas, monospace;
+            font-size: 1.05rem;
+            color: #d4d4d4;
+            line-height: 1.6;
+        }
+
+        .tree-code-block .folder {
+            color: var(--accent-warm);
+            font-weight: 500;
+        }
+
+        .tree-code-block .file-html {
+            color: #9cdcfe;
+        }
+
+        .tree-code-block .file-media {
+            color: #ce9178;
+        }
+
+        .tree-code-block .comment {
+            color: #6a9955;
         }
 
         footer {
@@ -316,6 +351,46 @@
                 <p>
                     本專案為數位科技概論課程之核心作業成果，旨在展示現代網頁前端開發技術、版本控制流程以及莫蘭迪美學視覺設計的整合實作。
                 </p>
+
+                <h3>📂 第二週課程教學架構 (week02/ Project Structure)</h3>
+                <p>
+                    以下為本課程第二週實作範例之完整專案樹狀目錄結構：
+                </p>
+
+                <!-- 圖片樹狀結構程式碼 -->
+                <div class="tree-code-block">
+<pre><span class="folder">week02/</span>
+├── 第二週教學講義.md
+└── <span class="folder">materials/</span>
+    ├── <span class="folder">01-text/</span>
+    │   └── <span class="file-html">01-html-text.html</span>
+    ├── <span class="folder">02-media/</span>
+    │   ├── <span class="file-html">02-html-media.html</span>
+    │   └── <span class="folder">media-02/</span>
+    │       ├── <span class="file-media">flower-photo.png</span>
+    │       ├── <span class="file-media">leaf-photo.png</span>
+    │       ├── <span class="file-media">flower-transparent.png</span>
+    │       ├── <span class="file-media">captain-calendar.svg</span>
+    │       ├── <span class="file-media">notice.wav</span>
+    │       └── <span class="file-media">flower.mp4</span>
+    ├── <span class="folder">03-plan/</span>
+    │   └── <span class="file-html">03-html-plan.html</span>
+    ├── <span class="folder">04-form/</span>
+    │   └── <span class="file-html">04-html-form.html</span>
+    ├── <span class="folder">05-style/</span>
+    │   ├── <span class="file-html">05-css-style.html</span>
+    │   └── <span class="file-html">05-color-lab.html</span>
+    ├── <span class="folder">06-layout/</span>
+    │   └── <span class="file-html">06-css-layout.html</span>
+    ├── <span class="folder">07-cards/</span>
+    │   ├── <span class="file-html">07-css-cards.html</span>
+    │   └── <span class="folder">images/</span> <span class="comment">(三張幾何封面 SVG)</span>
+    ├── <span class="folder">08-rwd/</span>
+    │   ├── <span class="file-html">08-css-rwd.html</span>
+    │   └── <span class="file-html">08-css-rwd-reference.html</span>
+    └── <span class="folder">09-accessibility/</span>
+        └── <span class="file-html">09-css-accessibility.html</span></pre>
+                </div>
 
                 <h3>📌 專案設計理念與架構</h3>
                 <p>
