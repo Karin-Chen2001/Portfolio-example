@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>數位科技概論作業 | 陳語彤 Karin</title>
+    <title>陳語彤 Karin 學習媒材與設計學系 | 個人作品集</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -53,71 +53,43 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 2.5rem 1.5rem;
+            padding: 3.5rem 1.5rem;
         }
 
-        /* 返回首頁導覽列 */
-        .top-nav {
-            margin-bottom: 1.5rem;
+        /* 最上方正中央的大標題區塊 */
+        .main-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-green);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-
-        .btn-back:hover {
-            color: var(--accent-green);
-        }
-
-        .btn-back span {
-            margin-right: 0.3rem;
-        }
-
-        /* 頂部頁面標題區塊 */
-        .page-header {
-            margin-bottom: 2.5rem;
-            text-align: left;
-        }
-
-        .page-header h1 {
-            font-size: 2.2rem;
-            color: var(--primary-green);
-            font-weight: 700;
+        .main-header h1 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: #111111; /* 黑色字體 */
+            letter-spacing: -0.5px;
+            line-height: 1.3;
             margin-bottom: 0.6rem;
-            line-height: 1.2;
         }
 
-        /* 數位科技概論下方三句介紹 */
-        .page-header-desc {
+        .main-header p {
             color: var(--text-sub);
-            font-size: 0.98rem;
-            line-height: 1.6;
-        }
-
-        .page-header-desc p {
-            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
         }
 
         .section-title {
             font-size: 1.4rem;
             color: var(--primary-green);
             font-weight: 700;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             border-left: 4px solid var(--primary-green);
             padding-left: 0.8rem;
         }
 
-        /* 網格配置 (適度縮小邊距與間距) */
+        /* 網格配置 (適度縮小邊距與間距，防止多餘留白) */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-bottom: 3rem;
         }
 
@@ -126,7 +98,7 @@
             background-color: var(--card-bg);
             border: 1.5px solid var(--border-light);
             border-radius: 10px;
-            padding: 1.2rem 1.4rem; /* 縮減內邊距，減少留白 */
+            padding: 1.4rem 1.6rem; /* 縮減內邊距，減少框框內空白 */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -145,70 +117,45 @@
             background-color: var(--light-green-bg);
             color: var(--primary-green);
             font-weight: 700;
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             padding: 0.2rem 0.6rem;
             border-radius: 4px;
             width: fit-content;
-            margin-bottom: 0.5rem;
-        }
-
-        /* 標題與右側小按鈕佈局 */
-        .title-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.6rem;
         }
 
         .card-title {
-            font-size: 1.15rem;
+            font-size: 1.3rem;
             color: var(--text-main);
             font-weight: 700;
-            line-height: 1.3;
+            margin-bottom: 0.6rem;
         }
 
-        .btn-title-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            background-color: var(--light-green-bg);
-            border: 1px solid var(--primary-green);
-            padding: 0.15rem 0.45rem;
-            border-radius: 4px;
-            text-decoration: none;
-            white-space: nowrap;
-            flex-shrink: 0;
-            transition: all 0.2s ease;
-        }
-
-        .btn-title-link:hover {
-            background-color: var(--primary-green);
-            color: #ffffff;
-        }
-
+        /* 數位科技概論三句介紹 */
         .card-desc {
             color: var(--text-sub);
-            font-size: 0.88rem;
-            line-height: 1.45;
-            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .card-desc span {
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
         .card-actions {
-            margin-top: 0.4rem;
+            margin-top: 0.5rem;
         }
 
         .btn-main {
             display: block;
             width: 100%;
             text-align: center;
-            padding: 0.55rem 0.8rem;
+            padding: 0.65rem 1rem;
             background-color: var(--primary-green);
             color: #ffffff;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 6px;
@@ -225,6 +172,13 @@
             color: var(--text-sub);
             font-size: 0.85rem;
         }
+
+        /* 行動裝置適應 */
+        @media (max-width: 600px) {
+            .main-header h1 {
+                font-size: 1.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -233,158 +187,30 @@
 
     <div class="container">
         
-        <!-- 頂部返回導覽 -->
-        <nav class="top-nav">
-            <a href="index.html" class="btn-back"><span>←</span> 返回首頁</a>
-        </nav>
-
-        <!-- 頁面標題區 -->
-        <header class="page-header">
-            <h1>數位科技概論作業</h1>
-            <div class="page-header-desc">
-                <p>本課程專注於掌握現代前端網頁建構的核心技術與邏輯思維。</p>
-                <p>透過 HTML 語意化結構與 CSS 樣式排版，探索多元視覺風格與響應式介面設計。</p>
-                <p>循序漸進累積專案開發經驗，將理論融入實作以提升網頁作品的互動性與無障礙體驗。</p>
-            </div>
+        <!-- 最上面正中央的大標題 -->
+        <header class="main-header">
+            <h1>陳語彤 Karin 學習媒材與設計學系</h1>
+            <p>歡迎來到我的個人作品集與課程學習成果展覽頁面。</p>
         </header>
 
-        <!-- 作業列表區塊 -->
+        <!-- 主內容區 -->
         <main>
-            <h2 class="section-title">活動列表</h2>
+            <h2 class="section-title">專案列表</h2>
 
             <div class="card-grid">
-                <!-- 活動 01 -->
+                <!-- 數位科技概論卡片 -->
                 <div class="square-card">
                     <div>
-                        <span class="card-tag">HTML 基礎</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 01：水與生活</h3>
-                            <a href="act01.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        <span class="card-tag">課程作業</span>
+                        <h3 class="card-title">數位科技概論</h3>
+                        <div class="card-desc">
+                            <span>• 本課程專注於培養現代網頁設計與前端開發的核心能力。</span>
+                            <span>• 學習運用 HTML 語意化結構與 CSS 視覺風格呈現多樣化版型。</span>
+                            <span>• 結合響應式介面設計與無障礙網頁規範，實作豐富的互動專案。</span>
                         </div>
-                        <p class="card-desc">展示基礎 HTML 標籤運用與主題內容呈現。</p>
                     </div>
                     <div class="card-actions">
-                        <a href="act01.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-
-                <!-- 活動 02 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">多媒體應用</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 02：讓小站有聲有影</h3>
-                            <a href="act02.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">學習嵌入影音與多媒體元件的網頁呈現。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act02.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-
-                <!-- 活動 03 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">資訊整理</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 03：整理我的學習計畫</h3>
-                            <a href="act03.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">運用清單與表格整理個人的學習規劃與目標。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act03.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-
-                <!-- 活動 04 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">互動表單</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 04：設計一張活動報名表</h3>
-                            <a href="act04.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">設計並實作包含各種輸入元件的 HTML 表單。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act04.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-
-                <!-- 活動 05 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">CSS 樣式</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 05：同一份內容，換一種風格</h3>
-                            <a href="act05.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">練習運用 CSS 改變網頁樣式與視覺氣氛。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act05.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-
-                <!-- 活動 06 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">版型設計</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 06：我的網站適合哪種版型？</h3>
-                            <a href="act06.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">探索並實驗適合不同內容主題的網頁版型設計。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act06.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-
-                <!-- 活動 07 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">CSS 排版</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 07：把內容排得整齊</h3>
-                            <a href="act07.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">運用 Flexbox 或 Grid 佈局技巧優化網頁整齊度。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act07.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-
-                <!-- 活動 08 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">響應式設計</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 08：從電腦版變成手機版</h3>
-                            <a href="act08.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">實作 RWD 響應式切換，確保行動裝置瀏覽體驗。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act08.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-
-                <!-- 活動 09 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">無障礙優化</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 09：先檢測，再修正無障礙問題</h3>
-                            <a href="act09.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">進行網站無障礙與易用性檢測並調整優化。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act09.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                        <a href="digital-technology.html" class="btn-main">進入課程作業集</a>
                     </div>
                 </div>
             </div>
