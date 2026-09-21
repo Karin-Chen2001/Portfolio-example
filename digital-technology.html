@@ -147,16 +147,47 @@
             margin-bottom: 1rem;
         }
 
+        /* 標題與右側小按鈕佈局 */
+        .title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             color: var(--text-main);
             font-weight: 700;
-            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .btn-title-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            background-color: var(--light-green-bg);
+            border: 1px solid var(--primary-green);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .btn-title-link:hover {
+            background-color: var(--primary-green);
+            color: #ffffff;
         }
 
         .card-desc {
             color: var(--text-sub);
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             flex-grow: 1;
         }
 
@@ -203,7 +234,7 @@
         <!-- 頁面標題區 -->
         <header class="page-header">
             <h1>數位科技概論作業</h1>
-            <p>展示課程相關成果與網頁實作練習。</p>
+            <p>展示 HTML 與 CSS 課程相關活動成果與網頁實作練習。</p>
         </header>
 
         <!-- 作業列表區塊 -->
@@ -211,15 +242,138 @@
             <h2 class="section-title">活動列表</h2>
 
             <div class="card-grid">
-                <!-- 活動 01：水與生活 卡片 -->
+                <!-- 活動 01 -->
                 <div class="square-card">
                     <div>
-                        <span class="card-tag">HTML 語意化練習</span>
-                        <h3 class="card-title">活動 01：水與生活</h3>
+                        <span class="card-tag">HTML 基礎</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 01：水與生活</h3>
+                            <a href="act01.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
                         <p class="card-desc">展示基礎 HTML 標籤運用與主題內容呈現。</p>
                     </div>
                     <div class="card-actions">
                         <a href="act01.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 02 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">多媒體應用</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 02：讓小站有聲有影</h3>
+                            <a href="act02.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">學習嵌入影音與多媒體元件的網頁呈現。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act02.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 03 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">資訊整理</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 03：整理我的學習計畫</h3>
+                            <a href="act03.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">運用清單與表格整理個人的學習規劃與目標。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act03.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 04 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">互動表單</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 04：設計一張活動報名表</h3>
+                            <a href="act04.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">設計並實作包含各種輸入元件的 HTML 表單。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act04.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 05 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">CSS 樣式</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 05：同一份內容，換一種風格</h3>
+                            <a href="act05.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">練習運用 CSS 改變網頁樣式與視覺氣氛。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act05.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 06 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">版型設計</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 06：我的網站適合哪種版型？</h3>
+                            <a href="act06.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">探索並實驗適合不同內容主題的網頁版型設計。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act06.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 07 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">CSS 排版</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 07：把內容排得整齊</h3>
+                            <a href="act07.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">運用 Flexbox 或 Grid 佈局技巧優化網頁整齊度。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act07.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 08 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">響應式設計</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 08：從電腦版變成手機版</h3>
+                            <a href="act08.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">實作 RWD 響應式切換，確保行動裝置瀏覽體驗。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act08.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 09 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">無障礙優化</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 09：先檢測，再修正無障礙問題</h3>
+                            <a href="act09.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">進行網站無障礙與易用性檢測並調整優化。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act09.html" target="_blank" class="btn-main">開啟活動網頁</a>
                     </div>
                 </div>
             </div>
