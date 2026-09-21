@@ -16,12 +16,13 @@
         }
 
         :root {
-            --bg-overlay: rgba(255, 255, 255, 0.90);
+            --bg-overlay: rgba(255, 255, 255, 0.92);
             --card-bg: #ffffff;
             --text-main: #111111;
             --text-sub: #555555;
-            --primary-pop: #E05A47; /* 鮮豔暖珊瑚橘 */
-            --accent-yellow: #D97706; /* 鮮豔芥末黃 */
+            --primary-green: #1C4D3B; /* 質感深綠色 */
+            --accent-green: #2E7D62;  /* 柔和中綠色 */
+            --light-green-bg: #E8F5E9; /* 淺綠標籤背景 */
             --border-light: #e5e7eb;
             --shadow-square: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
@@ -55,14 +56,96 @@
             padding: 3.5rem 1.5rem;
         }
 
-        /* 個人簡介與頭貼區塊 */
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-green);
+            padding-left: 0.8rem;
+        }
+
+        /* 正方形感 Grid 網格配置 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* 正方形視覺卡片 */
+        .square-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 2.2rem;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-square);
+            transition: all 0.3s ease;
+        }
+
+        .square-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-green);
+            box-shadow: 0 15px 35px rgba(28, 77, 59, 0.12);
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: var(--light-green-bg);
+            color: var(--primary-green);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            width: fit-content;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-desc {
+            color: var(--text-sub);
+            font-size: 0.98rem;
+            flex-grow: 1;
+        }
+
+        .card-actions {
+            margin-top: 1.5rem;
+        }
+
+        .btn-main {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.8rem 1rem;
+            background-color: var(--primary-green);
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-main:hover {
+            background-color: var(--accent-green);
+        }
+
+        /* 頁底個人簡介與頭貼區塊 */
         .profile-card {
             background-color: var(--card-bg);
             border: 2px solid var(--border-light);
             border-radius: 12px;
             padding: 2.5rem;
             box-shadow: var(--shadow-square);
-            margin-bottom: 3rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -84,9 +167,9 @@
             height: 150px;
             border-radius: 16px;
             overflow: hidden;
-            border: 3px solid var(--primary-pop);
+            border: 3px solid var(--primary-green);
             cursor: pointer;
-            box-shadow: 0 8px 16px rgba(224, 90, 71, 0.2);
+            box-shadow: 0 8px 16px rgba(28, 77, 59, 0.15);
             transition: all 0.3s ease;
             background-color: #f9fafb;
             display: flex;
@@ -140,17 +223,41 @@
         }
 
         .profile-info h1 {
-            font-size: 2.2rem;
-            color: var(--primary-pop);
+            font-size: 2rem;
+            color: var(--primary-green);
             font-weight: 700;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
-        .profile-info .subtitle {
-            font-size: 1.1rem;
-            color: var(--accent-yellow);
+        .profile-info .dept-title {
+            font-size: 1.05rem;
+            color: var(--accent-green);
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* 興趣標籤區 */
+        .interests-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .interests-box {
+                justify-content: flex-start;
+            }
+        }
+
+        .interest-tag {
+            background-color: #f3f4f6;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 500;
         }
 
         .contact-links {
@@ -173,7 +280,7 @@
             border: 1px solid var(--border-light);
             padding: 0.5rem 1rem;
             border-radius: 6px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-main);
             text-decoration: none;
             font-weight: 500;
@@ -181,119 +288,19 @@
         }
 
         .contact-item:hover {
-            border-color: var(--primary-pop);
-            color: var(--primary-pop);
+            border-color: var(--primary-green);
+            color: var(--primary-green);
             background-color: #ffffff;
         }
 
         .contact-item span {
             font-weight: 700;
-            color: var(--primary-pop);
+            color: var(--primary-green);
             margin-right: 0.4rem;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--text-main);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary-pop);
-            padding-left: 0.8rem;
-        }
-
-        /* 正方形感 Grid 網格配置 */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        /* 正方形視覺卡片 */
-        .square-card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-light);
-            border-radius: 8px;
-            padding: 2.2rem;
-            aspect-ratio: 1 / 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: var(--shadow-square);
-            transition: all 0.3s ease;
-        }
-
-        .square-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-pop);
-            box-shadow: 0 15px 35px rgba(224, 90, 71, 0.15);
-        }
-
-        .card-tag {
-            display: inline-block;
-            background-color: #FEF3C7;
-            color: var(--accent-yellow);
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            width: fit-content;
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            color: var(--text-main);
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .card-desc {
-            color: var(--text-sub);
-            font-size: 0.98rem;
-            flex-grow: 1;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .btn-main {
-            flex: 1;
-            text-align: center;
-            padding: 0.8rem 1rem;
-            background-color: var(--primary-pop);
-            color: #ffffff;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background 0.2s ease;
-        }
-
-        .btn-main:hover {
-            background-color: #C84332;
-        }
-
-        .btn-sub {
-            flex: 1;
-            text-align: center;
-            padding: 0.8rem 1rem;
-            background-color: #ffffff;
-            color: var(--primary-pop);
-            border: 2px solid var(--primary-pop);
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-
-        .btn-sub:hover {
-            background-color: #FEE2E2;
-        }
-
         footer {
-            margin-top: 4rem;
+            margin-top: 3rem;
             text-align: center;
             color: var(--text-sub);
             font-size: 0.9rem;
@@ -306,8 +313,27 @@
 
     <div class="container">
         
-        <!-- 個人頭貼與介紹區塊 -->
-        <header class="profile-card">
+        <!-- 頂部：專案列表區塊 -->
+        <main>
+            <h2 class="section-title">專案列表</h2>
+
+            <div class="card-grid">
+                <!-- 數位科技概論卡片 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">核心專案</span>
+                        <h3 class="card-title">數位科技概論作業</h3>
+                        <p class="card-desc">包含網頁開發與專案實務展示，以及學習過程中的相關數位活動成果。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="digital-technology.html" class="btn-main">進入專案頁面</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 底部：個人頭貼、簡介與聯繫資料區塊 -->
+        <footer-profile class="profile-card">
             <div class="avatar-upload-box" title="點擊上傳大頭照">
                 <div class="avatar-placeholder" id="avatarPlaceholder">
                     <span>📷</span>
@@ -319,45 +345,24 @@
 
             <div class="profile-info">
                 <h1>陳語彤 Karin</h1>
-                <div class="subtitle">作品集總覽</div>
+                <div class="dept-title">學習媒材與設計學系</div>
+
+                <!-- 興趣與嗜好標籤 -->
+                <div class="interests-box">
+                    <span class="interest-tag">📷 攝影藝術與寫真</span>
+                    <span class="interest-tag">🎨 數位內容創作</span>
+                    <span class="interest-tag">🎸 吉他彈唱</span>
+                    <span class="interest-tag">🎧 R&B / Lo-Fi 音樂</span>
+                </div>
 
                 <!-- 個人聯繫資料 -->
                 <div class="contact-links">
-                    <a href="mailto:hebe60716@gmail.com" class="contact-item"><span>✉️</span> Email: hebe60716@gmail.com</a>
-                    <a href="tel:0979060906" class="contact-item"><span>📞</span> Phone: 0979-060-906</a>
+                    <a href="mailto:hebe60716@gmail.com" class="contact-item"><span>✉️</span> hebe60716@gmail.com</a>
+                    <a href="tel:0979060906" class="contact-item"><span>📞</span> 0979-060-906</a>
                     <a href="https://instagram.com/yt.chen_9.6" target="_blank" class="contact-item"><span>📸</span> IG: yt.chen_9.6</a>
                 </div>
             </div>
-        </header>
-
-        <h2 class="section-title">專案列表</h2>
-
-        <main class="card-grid">
-            <!-- 數位科技概論卡片 -->
-            <div class="square-card">
-                <div>
-                    <span class="card-tag">核心專案</span>
-                    <h3 class="card-title">數位科技概論作業</h3>
-                    <p class="card-desc">包含網頁開發與專案實務展示，以及課程相關活動成果。</p>
-                </div>
-                <div class="card-actions">
-                    <a href="digital-technology.html" class="btn-main">進入專案頁面</a>
-                    <a href="act01.html" target="_blank" class="btn-sub">開啟活動01</a>
-                </div>
-            </div>
-
-            <!-- 活動 01 卡片 -->
-            <div class="square-card">
-                <div>
-                    <span class="card-tag">HTML 練習</span>
-                    <h3 class="card-title">活動 01：文字與層級標籤</h3>
-                    <p class="card-desc">展示 HTML 語意化文字標籤、主題層級與科學符號。</p>
-                </div>
-                <div class="card-actions">
-                    <a href="act01.html" target="_blank" class="btn-main">開啟純 HTML 頁面</a>
-                </div>
-            </div>
-        </main>
+        </footer-profile>
 
         <footer>
             <p>© 2026 陳語彤 Karin. All rights reserved.</p>
