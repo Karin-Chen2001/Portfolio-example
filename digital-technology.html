@@ -6,47 +6,43 @@
     <title>數位科技概論作業 - 網頁開發與專案實務 | 陳語彤 Karin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: "文鼎DC蔡燊軒行書體", "AR TsaiShenHsuanXingBook", "KaiTi", "標楷體", "Cormorant Garamond", serif;
+            font-family: 'Noto Sans TC', sans-serif;
         }
 
         :root {
-            --bg-black: #121212;
-            --morandi-coffee: #6e5d53;
-            --morandi-coffee-light: #837065;
-            --morandi-coffee-dark: #50423a;
-            --card-border: rgba(184, 165, 153, 0.3);
-            --text-light: #f5f2ef;
-            --text-sub: #d8cecf;
-            --accent-warm: #d39e82;
-            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.5);
-            --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.7);
+            --bg-overlay: rgba(255, 255, 255, 0.90);
+            --card-bg: #ffffff;
+            --text-main: #111111;
+            --text-sub: #4b5563;
+            --primary-pop: #E05A47; /* 鮮豔暖珊瑚橘 */
+            --accent-yellow: #D97706; /* 鮮豔芥末黃 */
+            --border-light: #e5e7eb;
+            --shadow-square: 0 10px 25px rgba(0, 0, 0, 0.06);
         }
 
         body {
-            background-color: var(--bg-black);
-            color: var(--text-light);
+            background-color: #fafafa;
+            color: var(--text-main);
             line-height: 1.8;
-            position: relative;
             min-height: 100vh;
+            position: relative;
         }
 
+        /* 淺色文青背景底圖 */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-image: linear-gradient(
-                to bottom,
-                rgba(18, 18, 18, 0.88),
-                rgba(18, 18, 18, 0.95)
-            ), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop');
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                              url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -54,284 +50,186 @@
         }
 
         .container {
-            max-width: 1140px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 1.5rem;
         }
 
-        .glass-card {
-            background-color: var(--morandi-coffee);
-            border-radius: 20px;
-            border: 1px solid var(--card-border);
-            padding: 2.8rem;
-            box-shadow: var(--shadow-soft);
-            margin-bottom: 2rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: var(--text-light);
-            margin-bottom: 1.8rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-            border-bottom: 2px solid var(--card-border);
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background-color: var(--accent-warm);
-        }
-
+        /* 按鈕樣式 */
         .back-btn, .action-btn {
             display: inline-block;
-            margin-bottom: 2rem;
             padding: 0.8rem 1.8rem;
-            background-color: var(--morandi-coffee-dark);
-            color: var(--text-light);
-            border: 1px solid var(--card-border);
-            border-radius: 50px;
-            font-size: 1.1rem;
+            background-color: #ffffff;
+            color: var(--text-main);
+            border: 2px solid var(--text-main);
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.05rem;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            margin-bottom: 2rem;
         }
 
-        .back-btn:hover, .action-btn:hover {
-            background-color: var(--accent-warm);
+        .back-btn:hover {
+            background-color: var(--text-main);
             color: #ffffff;
-            transform: translateX(-4px);
         }
 
         .action-btn {
-            margin-bottom: 0;
+            background-color: var(--primary-pop);
+            color: #ffffff;
+            border: none;
             margin-top: 1.5rem;
-            background-color: var(--accent-warm);
+            margin-bottom: 0;
+            box-shadow: 0 4px 12px rgba(224, 90, 71, 0.3);
         }
 
         .action-btn:hover {
-            background-color: #be8467;
-            transform: translateY(-2px);
+            background-color: #C84332;
         }
 
-        .detail-header-img {
+        /* 正方形感覺的區域塊 */
+        .square-section {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: var(--shadow-square);
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header-img {
             width: 100%;
-            height: 350px;
+            height: 280px;
             background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            border-radius: 20px;
-            margin-bottom: 2.5rem;
-            border: 1px solid var(--card-border);
-        }
-
-        .detail-content h3 {
-            font-size: 1.6rem;
-            color: var(--accent-warm);
-            margin: 2rem 0 1rem 0;
-        }
-
-        .detail-content p {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 2;
-        }
-
-        .detail-content ul {
-            margin-left: 2rem;
+            border-radius: 8px;
             margin-bottom: 2rem;
         }
 
-        .detail-content li {
-            font-size: 1.15rem;
-            color: var(--text-sub);
-            margin-bottom: 0.8rem;
-            line-height: 1.8;
+        /* 標題與字體顏色設定 */
+        h1.page-title {
+            font-size: 2.2rem;
+            color: var(--primary-pop);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-pop);
+            padding-bottom: 0.5rem;
         }
 
+        .square-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-pop);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .square-section h3 {
+            font-size: 1.35rem;
+            color: var(--accent-yellow);
+            font-weight: 700;
+            margin: 1.8rem 0 0.8rem 0;
+        }
+
+        .square-section p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .square-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .square-section li {
+            font-size: 1.05rem;
+            color: var(--text-sub);
+            margin-bottom: 0.5rem;
+        }
+
+        .square-section li strong {
+            color: var(--text-main);
+        }
+
+        /* 活動內文預覽區域（黑字白色背景） */
         .activity-preview-box {
-            background-color: var(--morandi-coffee-dark);
-            border-radius: 16px;
+            background-color: #f9fafb;
+            border: 1px solid var(--border-light);
+            border-left: 5px solid var(--accent-yellow);
+            border-radius: 6px;
             padding: 2rem;
-            border: 1px solid var(--card-border);
             margin-top: 1.5rem;
         }
 
         .activity-preview-box h2 {
-            font-size: 1.5rem;
-            color: var(--accent-warm);
-            margin-top: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-top: 1rem;
         }
 
         .activity-preview-box h3 {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-top: 1rem;
-            margin-bottom: 0.4rem;
+            font-size: 1.2rem;
+            color: var(--accent-yellow);
+            margin-top: 0.8rem;
         }
 
+        .activity-preview-box p {
+            color: var(--text-sub);
+        }
+
+        /* Footer 聯絡資訊 */
         footer {
-            margin-top: 4rem;
-            padding: 4rem 3rem;
-            background-color: var(--morandi-coffee);
-            border-radius: 24px;
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow-soft);
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: var(--shadow-square);
+            text-align: center;
         }
 
         footer h2 {
-            font-size: 2.2rem;
-            color: var(--text-light);
+            font-size: 2rem;
+            color: var(--primary-pop);
             margin-bottom: 0.5rem;
-            text-align: center;
         }
 
-        footer .footer-intro {
-            font-size: 1.2rem;
+        footer p.footer-intro {
             color: var(--text-sub);
-            margin-bottom: 3rem;
-            text-align: center;
+            margin-bottom: 2rem;
         }
 
-        .contact-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: var(--morandi-coffee-dark);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--card-border);
-        }
-
-        @media (max-width: 768px) {
-            .contact-wrapper {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        .contact-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.2rem;
-            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .avatar-upload-box {
-            position: relative;
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--accent-warm);
-            cursor: pointer;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            background-color: var(--morandi-coffee);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .info-card {
+            background-color: #f9fafb;
+            border: 1px solid var(--border-light);
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-weight: 500;
         }
 
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-
-        .avatar-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-sub);
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        .avatar-placeholder span {
-            font-size: 1.4rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .avatar-upload-box input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            background-color: var(--accent-warm);
-            color: #ffffff;
-            font-size: 1.2rem;
+        .info-card a {
+            color: var(--primary-pop);
             text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            white-space: nowrap;
+            font-weight: 700;
         }
 
-        .contact-btn:hover {
-            background-color: #be8467;
-            transform: scale(1.04);
-        }
-
-        .contact-right {
-            flex: 1.2;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.15rem;
-            color: var(--text-light);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.8rem 1.2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .info-item .icon {
-            font-size: 1.3rem;
-            color: var(--accent-warm);
-        }
-
-        .info-item a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .info-item a:hover {
-            color: var(--accent-warm);
+        .info-card a:hover {
+            text-decoration: underline;
         }
 
         .copyright {
-            margin-top: 3rem;
-            font-size: 0.95rem;
+            margin-top: 2.5rem;
             color: var(--text-sub);
-            text-align: center;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -342,113 +240,66 @@
     <div class="container">
         <a href="index.html" class="back-btn">← 返回作品集首頁</a>
         
-        <div class="glass-card">
-            <div class="detail-header-img"></div>
-            <h1 class="section-title">數位科技概論作業 - 網頁開發與專案實務</h1>
+        <!-- 正方形感內容區塊 1：專案介紹 -->
+        <div class="square-section">
+            <div class="section-header-img"></div>
+            <h1 class="page-title">數位科技概論作業 - 網頁開發與專案實務</h1>
             
-            <div class="detail-content">
-                <p>
-                    本專案為數位科技概論課程之核心作業成果，旨在展示現代網頁前端開發技術、版本控制流程以及莫蘭迪美學視覺設計的整合實作。
-                </p>
+            <p>
+                本專案為數位科技概論課程之核心作業成果，旨在展示現代網頁前端開發技術、版本控制流程與視覺設計的整合實作。
+            </p>
 
-                <h3>📌 專案設計理念與架構</h3>
-                <p>
-                    以簡約高質感且沉穩的深黑與莫蘭迪咖啡色為主調，著重於響應式排版（Responsive Design）與優質的用戶互動體驗。
-                </p>
+            <h3>📌 專案設計理念與架構</h3>
+            <p>
+                採用簡約文青白色調搭配明亮鮮豔的標題色彩，著重於直覺的閱覽體驗與排版佈局。
+            </p>
 
-                <h3>🛠️ 使用技術與開發重點</h3>
-                <ul>
-                    <li><strong>GitHub 版本控制：</strong>使用 Git 進行專案版本控管、程式碼同步與架構優化。</li>
-                    <li><strong>HTML5 語意化結構：</strong>打造清楚且利於搜尋引擎優化（SEO）的內容架構。</li>
-                    <li><strong>CSS3 莫蘭迪視覺與響應式系統：</strong>採用 CSS Grid 與 Flexbox 實現跨裝置流暢適配。</li>
-                    <li><strong>JavaScript 動態互動：</strong>包含大頭照即時預覽、單頁應用（SPA）无縫頁面切換機制。</li>
-                </ul>
-            </div>
+            <h3>🛠️ 使用技術與開發重點</h3>
+            <ul>
+                <li><strong>GitHub 版本控制：</strong>使用 Git 進行專案版本控管與程式碼同步。</li>
+                <li><strong>HTML5 語意化結構：</strong>打造清楚且利於搜尋引擎優化（SEO）的內容架構。</li>
+                <li><strong>CSS3 響應式系統：</strong>採用 CSS Grid 與 Flexbox 實現流暢跨裝置適配。</li>
+            </ul>
         </div>
 
-        <!-- 活動 01 區塊內容與跳轉按鈕 -->
-        <div class="glass-card">
-            <h2 class="section-title">活動 01：文字與層級標籤</h2>
+        <!-- 正方形感內容區塊 2：活動 01 展示 -->
+        <div class="square-section">
+            <h2>活動 01：文字與層級標籤</h2>
+            <p>這段練習展示了 HTML 的語意化文字標籤，包含主題層級、劃重點與科學符號展示。</p>
             
             <div class="activity-preview-box">
-                <p>這段練習展示了 HTML 的語意化文字標籤，包含主題層級、劃重點與科學符號展示。</p>
-
                 <h2>水與生活：小小科學探索日</h2>
                 <p>一起從生活中的水，發現科學的有趣之處。</p>
 
-                <h2>活動介紹</h2>
+                <h3>活動介紹</h3>
                 <p>這次活動適合國小中年級學生，請帶著好奇心一起參加。</p>
 
-                <h3>觀察水的樣子</h3>
-                <p>看看不同容器中的水，試著說出你觀察到的變化。</p>
+                <h3>觀察水的樣子與名字</h3>
+                <p>看看不同容器中的水，試著說出你觀察到的變化。水的化學式是 H<sub>2</sub>O。</p>
 
-                <h3>認識水的名字</h3>
-                <p>水的化學式是 H<sub>2</sub>O。</p>
-
-                <h2>參加前的小提醒</h2>
-                <p>請<b>自備水壺</b>，並準備一本觀察筆記。</p>
-                <p>今天的探索口號是：<i>先觀察，再提問！</i></p>
+                <h3>參加前的小提醒</h3>
+                <p>請<b>自備水壺</b>，並準備一本觀察筆記。今天的探索口號是：<i>先觀察，再提問！</i></p>
                 <p>我們將使用面積為 100cm<sup>2</sup> 的方形觀察卡。</p>
             </div>
 
-            <!-- 點擊開新頁面開啟獨立 act01.html 的按鈕 -->
-            <a href="act01.html" target="_blank" class="action-btn">🔗 點此在新分頁開啟「活動01純HTML網頁」</a>
+            <!-- 開新分頁按鈕 -->
+            <a href="act01.html" target="_blank" class="action-btn">🔗 開啟獨立「活動 01」純 HTML 網頁</a>
         </div>
 
+        <!-- 聯絡區塊 -->
         <footer>
             <h2>Let's Connect</h2>
             <p class="footer-intro">想了解更多作品細節與合作交流，歡迎隨時與我聯繫！</p>
             
-            <div class="contact-wrapper">
-                <div class="contact-left">
-                    <div class="avatar-upload-box" title="點擊上傳大頭照">
-                        <div class="avatar-placeholder" id="avatarPlaceholder">
-                            <span>📷</span>
-                            點擊上傳頭像
-                        </div>
-                        <img id="avatarImage" class="avatar-img" alt="Karin Avatar">
-                        <input type="file" id="avatarInput" accept="image/*">
-                    </div>
-                    <a href="mailto:hebe60716@gmail.com" class="contact-btn">寄信給 Karin</a>
-                </div>
-
-                <div class="contact-right">
-                    <div class="info-item">
-                        <span class="icon">✉️</span>
-                        <span>Email: <a href="mailto:hebe60716@gmail.com">hebe60716@gmail.com</a></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="icon">📞</span>
-                        <span>Phone: <a href="tel:0979060906">0979-060-906</a></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="icon">📸</span>
-                        <span>IG: <a href="https://instagram.com/yt.chen_9.6" target="_blank">yt.chen_9.6</a></span>
-                    </div>
-                </div>
+            <div class="contact-grid">
+                <div class="info-card">✉️ Email: <br><a href="mailto:hebe60716@gmail.com">hebe60716@gmail.com</a></div>
+                <div class="info-card">📞 Phone: <br><a href="tel:0979060906">0979-060-906</a></div>
+                <div class="info-card">📸 Instagram: <br><a href="https://instagram.com/yt.chen_9.6" target="_blank">yt.chen_9.6</a></div>
             </div>
 
             <p class="copyright">© 2026 陳語彤 Karin. All rights reserved.</p>
         </footer>
     </div>
 
-    <script>
-        const avatarInput = document.getElementById('avatarInput');
-        const avatarImage = document.getElementById('avatarImage');
-        const avatarPlaceholder = document.getElementById('avatarPlaceholder');
-
-        avatarInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    avatarImage.src = event.target.result;
-                    avatarImage.style.display = 'block';
-                    avatarPlaceholder.style.display = 'none';
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
 </body>
 </html>
