@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作品集首頁 | 陳語彤 Karin</title>
+    <title>數位科技概論作業 | 陳語彤 Karin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,13 +24,13 @@
             --accent-green: #2E7D62;  /* 柔和中綠色 */
             --light-green-bg: #E8F5E9; /* 淺綠標籤背景 */
             --border-light: #e5e7eb;
-            --shadow-square: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-square: 0 8px 20px rgba(0, 0, 0, 0.05);
         }
 
         body {
             background-color: #fafafa;
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.5;
             min-height: 100vh;
             position: relative;
         }
@@ -53,81 +53,91 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 3.5rem 1.5rem;
+            padding: 2.5rem 1.5rem;
         }
 
-        /* 頂部左上角大標題與個人資訊 */
-        .top-header {
-            margin-bottom: 3rem;
+        /* 返回首頁導覽列 */
+        .top-nav {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .btn-back:hover {
+            color: var(--accent-green);
+        }
+
+        .btn-back span {
+            margin-right: 0.3rem;
+        }
+
+        /* 頂部頁面標題區塊 */
+        .page-header {
+            margin-bottom: 2.5rem;
             text-align: left;
         }
 
-        .top-header h1 {
-            font-size: 2.5rem;
+        .page-header h1 {
+            font-size: 2.2rem;
             color: var(--primary-green);
             font-weight: 700;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.6rem;
             line-height: 1.2;
         }
 
-        .top-header .dept-title {
-            font-size: 1.15rem;
-            color: var(--accent-green);
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        /* 興趣標籤區 */
-        .interests-box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .interest-tag {
-            background-color: #f3f4f6;
+        /* 數位科技概論下方三句介紹 */
+        .page-header-desc {
             color: var(--text-sub);
-            font-size: 0.88rem;
-            padding: 0.25rem 0.7rem;
-            border-radius: 4px;
-            font-weight: 500;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .page-header-desc p {
+            margin-bottom: 0.3rem;
         }
 
         .section-title {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: var(--primary-green);
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             border-left: 4px solid var(--primary-green);
             padding-left: 0.8rem;
         }
 
-        /* 正方形感 Grid 網格配置 */
+        /* 網格配置 (適度縮小邊距與間距) */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 3rem;
         }
 
-        /* 正方形視覺卡片 */
+        /* 精簡內部空白的卡片 */
         .square-card {
             background-color: var(--card-bg);
-            border: 2px solid var(--border-light);
-            border-radius: 12px;
-            padding: 2.2rem;
-            aspect-ratio: 1 / 1;
+            border: 1.5px solid var(--border-light);
+            border-radius: 10px;
+            padding: 1.2rem 1.4rem; /* 縮減內邊距，減少留白 */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             box-shadow: var(--shadow-square);
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .square-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: var(--primary-green);
-            box-shadow: 0 15px 35px rgba(28, 77, 59, 0.12);
+            box-shadow: 0 10px 25px rgba(28, 77, 59, 0.12);
         }
 
         .card-tag {
@@ -135,37 +145,70 @@
             background-color: var(--light-green-bg);
             color: var(--primary-green);
             font-weight: 700;
-            font-size: 0.85rem;
-            padding: 0.3rem 0.8rem;
+            font-size: 0.78rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 4px;
             width: fit-content;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 標題與右側小按鈕佈局 */
+        .title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.15rem;
             color: var(--text-main);
             font-weight: 700;
-            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .btn-title-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            background-color: var(--light-green-bg);
+            border: 1px solid var(--primary-green);
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .btn-title-link:hover {
+            background-color: var(--primary-green);
+            color: #ffffff;
         }
 
         .card-desc {
             color: var(--text-sub);
-            font-size: 0.98rem;
-            flex-grow: 1;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            margin-bottom: 0.8rem;
         }
 
         .card-actions {
-            margin-top: 1.5rem;
+            margin-top: 0.4rem;
         }
 
         .btn-main {
             display: block;
             width: 100%;
             text-align: center;
-            padding: 0.8rem 1rem;
+            padding: 0.55rem 0.8rem;
             background-color: var(--primary-green);
             color: #ffffff;
+            font-size: 0.88rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 6px;
@@ -176,140 +219,11 @@
             background-color: var(--accent-green);
         }
 
-        /* 頁底頭貼與聯繫資料區塊 */
-        .contact-card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-light);
-            border-radius: 12px;
-            padding: 2rem 2.5rem;
-            box-shadow: var(--shadow-square);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .contact-card {
-                flex-direction: row;
-                text-align: left;
-                align-items: center;
-                gap: 2.5rem;
-            }
-        }
-
-        .avatar-upload-box {
-            position: relative;
-            width: 130px;
-            height: 130px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 3px solid var(--primary-green);
-            cursor: pointer;
-            box-shadow: 0 8px 16px rgba(28, 77, 59, 0.15);
-            transition: all 0.3s ease;
-            background-color: #f9fafb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .avatar-upload-box {
-                margin-bottom: 0;
-            }
-        }
-
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-
-        .avatar-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-sub);
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        .avatar-placeholder span {
-            font-size: 1.5rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .avatar-upload-box input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .contact-info {
-            flex-grow: 1;
-        }
-
-        .contact-title {
-            font-size: 1.2rem;
-            color: var(--primary-green);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            justify-content: center;
-        }
-
-        @media (min-width: 768px) {
-            .contact-links {
-                justify-content: flex-start;
-            }
-        }
-
-        .contact-item {
-            display: inline-flex;
-            align-items: center;
-            background-color: #f9fafb;
-            border: 1px solid var(--border-light);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .contact-item:hover {
-            border-color: var(--primary-green);
-            color: var(--primary-green);
-            background-color: #ffffff;
-        }
-
-        .contact-item span {
-            font-weight: 700;
-            color: var(--primary-green);
-            margin-right: 0.4rem;
-        }
-
         footer {
             margin-top: 3rem;
             text-align: center;
             color: var(--text-sub);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -319,84 +233,167 @@
 
     <div class="container">
         
-        <!-- 頂部左上角大標題與個人資訊 -->
-        <header class="top-header">
-            <h1>陳語彤 Karin</h1>
-            <div class="dept-title">學習媒材與設計學系</div>
+        <!-- 頂部返回導覽 -->
+        <nav class="top-nav">
+            <a href="index.html" class="btn-back"><span>←</span> 返回首頁</a>
+        </nav>
 
-            <!-- 興趣與嗜好標籤 -->
-            <div class="interests-box">
-                <span class="interest-tag">📷 攝影藝術與寫真</span>
-                <span class="interest-tag">🎨 數位內容創作</span>
-                <span class="interest-tag">🎸 吉他彈唱</span>
-                <span class="interest-tag">🎧 R&B / 華語流行 音樂</span>
+        <!-- 頁面標題區 -->
+        <header class="page-header">
+            <h1>數位科技概論作業</h1>
+            <div class="page-header-desc">
+                <p>本課程專注於掌握現代前端網頁建構的核心技術與邏輯思維。</p>
+                <p>透過 HTML 語意化結構與 CSS 樣式排版，探索多元視覺風格與響應式介面設計。</p>
+                <p>循序漸進累積專案開發經驗，將理論融入實作以提升網頁作品的互動性與無障礙體驗。</p>
             </div>
         </header>
 
-        <!-- 專案列表區塊 -->
+        <!-- 作業列表區塊 -->
         <main>
-            <h2 class="section-title">專案列表</h2>
+            <h2 class="section-title">活動列表</h2>
 
             <div class="card-grid">
-                <!-- 數位科技概論卡片 -->
+                <!-- 活動 01 -->
                 <div class="square-card">
                     <div>
-                        <span class="card-tag">核心專案</span>
-                        <h3 class="card-title">數位科技概論作業</h3>
-                        <p class="card-desc">包含網頁開發與專案實務展示，以及學習過程中的相關數位活動成果。</p>
+                        <span class="card-tag">HTML 基礎</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 01：水與生活</h3>
+                            <a href="act01.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">展示基礎 HTML 標籤運用與主題內容呈現。</p>
                     </div>
                     <div class="card-actions">
-                        <a href="digital-technology.html" class="btn-main">進入專案頁面</a>
+                        <a href="act01.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 02 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">多媒體應用</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 02：讓小站有聲有影</h3>
+                            <a href="act02.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">學習嵌入影音與多媒體元件的網頁呈現。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act02.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 03 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">資訊整理</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 03：整理我的學習計畫</h3>
+                            <a href="act03.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">運用清單與表格整理個人的學習規劃與目標。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act03.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 04 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">互動表單</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 04：設計一張活動報名表</h3>
+                            <a href="act04.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">設計並實作包含各種輸入元件的 HTML 表單。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act04.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 05 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">CSS 樣式</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 05：同一份內容，換一種風格</h3>
+                            <a href="act05.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">練習運用 CSS 改變網頁樣式與視覺氣氛。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act05.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 06 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">版型設計</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 06：我的網站適合哪種版型？</h3>
+                            <a href="act06.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">探索並實驗適合不同內容主題的網頁版型設計。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act06.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 07 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">CSS 排版</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 07：把內容排得整齊</h3>
+                            <a href="act07.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">運用 Flexbox 或 Grid 佈局技巧優化網頁整齊度。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act07.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 08 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">響應式設計</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 08：從電腦版變成手機版</h3>
+                            <a href="act08.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">實作 RWD 響應式切換，確保行動裝置瀏覽體驗。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act08.html" target="_blank" class="btn-main">開啟活動網頁</a>
+                    </div>
+                </div>
+
+                <!-- 活動 09 -->
+                <div class="square-card">
+                    <div>
+                        <span class="card-tag">無障礙優化</span>
+                        <div class="title-row">
+                            <h3 class="card-title">活動 09：先檢測，再修正無障礙問題</h3>
+                            <a href="act09.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
+                        </div>
+                        <p class="card-desc">進行網站無障礙與易用性檢測並調整優化。</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="act09.html" target="_blank" class="btn-main">開啟活動網頁</a>
                     </div>
                 </div>
             </div>
         </main>
-
-        <!-- 底部：大頭貼與個人聯繫資料 -->
-        <div class="contact-card">
-            <div class="avatar-upload-box" title="點擊上傳大頭照">
-                <div class="avatar-placeholder" id="avatarPlaceholder">
-                    <span>📷</span>
-                    點擊上傳頭像
-                </div>
-                <img id="avatarImage" class="avatar-img" alt="Karin Avatar">
-                <input type="file" id="avatarInput" accept="image/*">
-            </div>
-
-            <div class="contact-info">
-                <div class="contact-title">聯絡資訊</div>
-
-                <!-- 個人聯繫資料 -->
-                <div class="contact-links">
-                    <a href="mailto:hebe60716@gmail.com" class="contact-item"><span>✉️</span> hebe60716@gmail.com</a>
-                    <a href="tel:0979060906" class="contact-item"><span>📞</span> 0979-060-906</a>
-                    <a href="https://instagram.com/yt.chen_9.6" target="_blank" class="contact-item"><span>📸</span> IG: yt.chen_9.6</a>
-                </div>
-            </div>
-        </div>
 
         <footer>
             <p>© 2026 陳語彤 Karin. All rights reserved.</p>
         </footer>
     </div>
 
-    <script>
-        const avatarInput = document.getElementById('avatarInput');
-        const avatarImage = document.getElementById('avatarImage');
-        const avatarPlaceholder = document.getElementById('avatarPlaceholder');
-
-        avatarInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    avatarImage.src = event.target.result;
-                    avatarImage.style.display = 'block';
-                    avatarPlaceholder.style.display = 'none';
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
 </body>
 </html>
