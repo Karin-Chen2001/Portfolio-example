@@ -3,386 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>數位科技概論作業 | 陳語彤 Karin</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-
-        :root {
-            --bg-overlay: rgba(255, 255, 255, 0.92);
-            --card-bg: #ffffff;
-            --text-main: #111111;
-            --text-sub: #555555;
-            --primary-green: #1C4D3B; /* 質感深綠色 */
-            --accent-green: #2E7D62;  /* 柔和中綠色 */
-            --light-green-bg: #E8F5E9; /* 淺綠標籤背景 */
-            --border-light: #e5e7eb;
-            --shadow-square: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        body {
-            background-color: #fafafa;
-            color: var(--text-main);
-            line-height: 1.6;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        /* 淺色文青背景底圖 */
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
-                              url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 3.5rem 1.5rem;
-        }
-
-        /* 返回首頁導覽列 */
-        .top-nav {
-            margin-bottom: 2rem;
-        }
-
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-green);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        .btn-back:hover {
-            color: var(--accent-green);
-        }
-
-        .btn-back span {
-            margin-right: 0.4rem;
-        }
-
-        /* 頂部頁面標題區塊 */
-        .page-header {
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .page-header h1 {
-            font-size: 2.3rem;
-            color: var(--primary-green);
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            line-height: 1.2;
-        }
-
-        .page-header p {
-            color: var(--text-sub);
-            font-size: 1.05rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--primary-green);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary-green);
-            padding-left: 0.8rem;
-        }
-
-        /* 正方形感 Grid 網格配置 */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        /* 正方形視覺卡片 */
-        .square-card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-light);
-            border-radius: 12px;
-            padding: 2.2rem;
-            aspect-ratio: 1 / 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: var(--shadow-square);
-            transition: all 0.3s ease;
-        }
-
-        .square-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-green);
-            box-shadow: 0 15px 35px rgba(28, 77, 59, 0.12);
-        }
-
-        .card-tag {
-            display: inline-block;
-            background-color: var(--light-green-bg);
-            color: var(--primary-green);
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            width: fit-content;
-            margin-bottom: 1rem;
-        }
-
-        /* 標題與右側小按鈕佈局 */
-        .title-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .card-title {
-            font-size: 1.35rem;
-            color: var(--text-main);
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .btn-title-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            background-color: var(--light-green-bg);
-            border: 1px solid var(--primary-green);
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            text-decoration: none;
-            white-space: nowrap;
-            flex-shrink: 0;
-            transition: all 0.2s ease;
-        }
-
-        .btn-title-link:hover {
-            background-color: var(--primary-green);
-            color: #ffffff;
-        }
-
-        .card-desc {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            flex-grow: 1;
-        }
-
-        .card-actions {
-            margin-top: 1.5rem;
-        }
-
-        .btn-main {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 0.8rem 1rem;
-            background-color: var(--primary-green);
-            color: #ffffff;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background 0.2s ease;
-        }
-
-        .btn-main:hover {
-            background-color: var(--accent-green);
-        }
-
-        footer {
-            margin-top: 4rem;
-            text-align: center;
-            color: var(--text-sub);
-            font-size: 0.9rem;
-        }
-    </style>
+    <title>HTML 的小作業們</title>
 </head>
 <body>
 
-    <div class="bg-overlay"></div>
+    <!-- 活動 01 -->
+    <section>
+        <h1>HTML 的小作業們</h1>
+        <p>一起從生活中的水，發現科學的有趣之處。</p>
 
-    <div class="container">
-        
-        <!-- 頂部返回導覽 -->
-        <nav class="top-nav">
-            <a href="index.html" class="btn-back"><span>←</span> 返回首頁</a>
-        </nav>
+        <hr>
 
-        <!-- 頁面標題區 -->
-        <header class="page-header">
-            <h1>數位科技概論作業</h1>
-            <p>展示 HTML 與 CSS 課程相關活動成果與網頁實作練習。</p>
-        </header>
+        <h2>活動介紹</h2>
+        <p>這次活動適合國小中年級學生，請帶著好奇心一起參加。</p>
 
-        <!-- 作業列表區塊 -->
-        <main>
-            <h2 class="section-title">活動列表</h2>
+        <h2>觀察水的樣子</h2>
+        <p>看看不同容器中的水，試著說出你觀察到的變化。</p>
 
-            <div class="card-grid">
-                <!-- 活動 01 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">HTML 基礎</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 01：水與生活</h3>
-                            <a href="act01.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">展示基礎 HTML 標籤運用與主題內容呈現。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act01.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
+        <h2>認識水的名字</h2>
+        <p>水的化學式是 H<sub>2</sub>O。</p>
 
-                <!-- 活動 02 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">多媒體應用</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 02：讓小站有聲有影</h3>
-                            <a href="act02.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">學習嵌入影音與多媒體元件的網頁呈現。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act02.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
+        <hr>
 
-                <!-- 活動 03 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">資訊整理</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 03：整理我的學習計畫</h3>
-                            <a href="act03.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">運用清單與表格整理個人的學習規劃與目標。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act03.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
+        <h3>參加前的小提醒</h3>
+        <p>請<b>自備水壺</b>，並準備一本觀察筆記。</p>
+        <p>今天的探索口號是：<i>先觀察，再提問！</i></p>
+        <p>我們將使用面積為 100 cm<sup>2</sup> 的方形觀察卡。</p>
+    </section>
 
-                <!-- 活動 04 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">互動表單</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 04：設計一張活動報名表</h3>
-                            <a href="act04.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">設計並實作包含各種輸入元件的 HTML 表單。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act04.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
+    <hr>
 
-                <!-- 活動 05 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">CSS 樣式</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 05：同一份內容，換一種風格</h3>
-                            <a href="act05.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">練習運用 CSS 改變網頁樣式與視覺氣氛。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act05.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
+    <!-- 活動 5 -->
+    <section>
+        <h2>活動 5：船長行事曆</h2>
+        <p>
+            <img src="captain-calendar.svg" alt="船長行事曆" width="500">
+        </p>
+    </section>
 
-                <!-- 活動 06 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">版型設計</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 06：我的網站適合哪種版型？</h3>
-                            <a href="act06.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">探索並實驗適合不同內容主題的網頁版型設計。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act06.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
+    <hr>
 
-                <!-- 活動 07 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">CSS 排版</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 07：把內容排得整齊</h3>
-                            <a href="act07.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">運用 Flexbox 或 Grid 佈局技巧優化網頁整齊度。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act07.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
+    <!-- 活動 6 -->
+    <section>
+        <h2>活動 6：看看葉脈</h2>
+        <p>觀察葉片圖片，找出葉脈延伸的方向。</p>
+        <p>
+            <img src="leaf-photo.png" alt="葉脈觀察圖片" width="400">
+        </p>
+    </section>
 
-                <!-- 活動 08 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">響應式設計</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 08：從電腦版變成手機版</h3>
-                            <a href="act08.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">實作 RWD 響應式切換，確保行動裝置瀏覽體驗。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act08.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
+    <hr>
 
-                <!-- 活動 09 -->
-                <div class="square-card">
-                    <div>
-                        <span class="card-tag">無障礙優化</span>
-                        <div class="title-row">
-                            <h3 class="card-title">活動 09：先檢測，再修正無障礙問題</h3>
-                            <a href="act09.html" target="_blank" class="btn-title-link" title="開啟活動網頁">🔗 開啟</a>
-                        </div>
-                        <p class="card-desc">進行網站無障礙與易用性檢測並調整優化。</p>
-                    </div>
-                    <div class="card-actions">
-                        <a href="act09.html" target="_blank" class="btn-main">開啟活動網頁</a>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <!-- 活動 7 -->
+    <section>
+        <h2>活動 7：提示音效</h2>
+        <p>按下播放，聽到三個由低到高的短音後，開始你的觀察。</p>
+        <p>
+            <audio controls src="notice.wav">
+                您的瀏覽器不支援播放聲音。
+            </audio>
+        </p>
+    </section>
 
-        <footer>
-            <p>© 2026 陳語彤 Karin. All rights reserved.</p>
-        </footer>
-    </div>
+    <hr>
+
+    <!-- 活動 8 -->
+    <section>
+        <h2>活動 8：觀察花朵（影片）</h2>
+        <p>播放短片，看看花朵怎麼移動，再用一句話描述。</p>
+        <p>
+            <video controls width="400">
+                <source src="flower.mp4" type="video/mp4">
+                您的瀏覽器不支援播放影片。
+            </video>
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- 活動 9 -->
+    <section>
+        <h2>活動 9：花朵寫真（去背圖）</h2>
+        <p>
+            <img src="flower-transparent.png" alt="去背花朵圖片" width="300">
+        </p>
+    </section>
+
+    <hr>
+
+    <p><a href="digital-technology.html">← 返回數位科技概論主頁</a></p>
 
 </body>
 </html>
