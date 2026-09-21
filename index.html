@@ -56,6 +56,43 @@
             padding: 3.5rem 1.5rem;
         }
 
+        /* 頂部左上角大標題與個人資訊 */
+        .top-header {
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .top-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .top-header .dept-title {
+            font-size: 1.15rem;
+            color: var(--accent-green);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        /* 興趣標籤區 */
+        .interests-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .interest-tag {
+            background-color: #f3f4f6;
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
         .section-title {
             font-size: 1.6rem;
             color: var(--primary-green);
@@ -139,12 +176,12 @@
             background-color: var(--accent-green);
         }
 
-        /* 頁底個人簡介與頭貼區塊 */
-        .profile-card {
+        /* 頁底頭貼與聯繫資料區塊 */
+        .contact-card {
             background-color: var(--card-bg);
             border: 2px solid var(--border-light);
             border-radius: 12px;
-            padding: 2.5rem;
+            padding: 2rem 2.5rem;
             box-shadow: var(--shadow-square);
             display: flex;
             flex-direction: column;
@@ -153,7 +190,7 @@
         }
 
         @media (min-width: 768px) {
-            .profile-card {
+            .contact-card {
                 flex-direction: row;
                 text-align: left;
                 align-items: center;
@@ -163,8 +200,8 @@
 
         .avatar-upload-box {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 16px;
             overflow: hidden;
             border: 3px solid var(--primary-green);
@@ -204,7 +241,7 @@
         }
 
         .avatar-placeholder span {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 0.2rem;
         }
 
@@ -218,46 +255,15 @@
             cursor: pointer;
         }
 
-        .profile-info {
+        .contact-info {
             flex-grow: 1;
         }
 
-        .profile-info h1 {
-            font-size: 2rem;
+        .contact-title {
+            font-size: 1.2rem;
             color: var(--primary-green);
             font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-
-        .profile-info .dept-title {
-            font-size: 1.05rem;
-            color: var(--accent-green);
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        /* 興趣標籤區 */
-        .interests-box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.2rem;
-            justify-content: center;
-        }
-
-        @media (min-width: 768px) {
-            .interests-box {
-                justify-content: flex-start;
-            }
-        }
-
-        .interest-tag {
-            background-color: #f3f4f6;
-            color: var(--text-sub);
-            font-size: 0.85rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-weight: 500;
+            margin-bottom: 1rem;
         }
 
         .contact-links {
@@ -313,7 +319,21 @@
 
     <div class="container">
         
-        <!-- 頂部：專案列表區塊 -->
+        <!-- 頂部左上角大標題與個人資訊 -->
+        <header class="top-header">
+            <h1>陳語彤 Karin</h1>
+            <div class="dept-title">學習媒材與設計學系</div>
+
+            <!-- 興趣與嗜好標籤 -->
+            <div class="interests-box">
+                <span class="interest-tag">📷 攝影藝術與寫真</span>
+                <span class="interest-tag">🎨 數位內容創作</span>
+                <span class="interest-tag">🎸 吉他彈唱</span>
+                <span class="interest-tag">🎧 R&B / 華語流行 音樂</span>
+            </div>
+        </header>
+
+        <!-- 專案列表區塊 -->
         <main>
             <h2 class="section-title">專案列表</h2>
 
@@ -332,8 +352,8 @@
             </div>
         </main>
 
-        <!-- 底部：個人頭貼、簡介與聯繫資料區塊 -->
-        <footer-profile class="profile-card">
+        <!-- 底部：大頭貼與個人聯繫資料 -->
+        <div class="contact-card">
             <div class="avatar-upload-box" title="點擊上傳大頭照">
                 <div class="avatar-placeholder" id="avatarPlaceholder">
                     <span>📷</span>
@@ -343,17 +363,8 @@
                 <input type="file" id="avatarInput" accept="image/*">
             </div>
 
-            <div class="profile-info">
-                <h1>陳語彤 Karin</h1>
-                <div class="dept-title">學習媒材與設計學系</div>
-
-                <!-- 興趣與嗜好標籤 -->
-                <div class="interests-box">
-                    <span class="interest-tag">📷 攝影藝術與寫真</span>
-                    <span class="interest-tag">🎨 數位內容創作</span>
-                    <span class="interest-tag">🎸 吉他彈唱</span>
-                    <span class="interest-tag">🎧 R&B / Lo-Fi 音樂</span>
-                </div>
+            <div class="contact-info">
+                <div class="contact-title">聯絡資訊</div>
 
                 <!-- 個人聯繫資料 -->
                 <div class="contact-links">
@@ -362,7 +373,7 @@
                     <a href="https://instagram.com/yt.chen_9.6" target="_blank" class="contact-item"><span>📸</span> IG: yt.chen_9.6</a>
                 </div>
             </div>
-        </footer-profile>
+        </div>
 
         <footer>
             <p>© 2026 陳語彤 Karin. All rights reserved.</p>
