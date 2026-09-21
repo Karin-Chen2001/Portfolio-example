@@ -3,51 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>陳語彤 Karin Chen | 視覺影像與媒體設計 個人作品集</title>
-    <!-- 引入 Google Fonts 輔助英文字體 -->
+    <title>作品集首頁 | 陳語彤 Karin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: "文鼎DC蔡燊軒行書體", "AR TsaiShenHsuanXingBook", "KaiTi", "標楷體", "Cormorant Garamond", serif;
+            font-family: 'Noto Sans TC', sans-serif;
         }
 
         :root {
-            --bg-black: #121212;
-            --morandi-coffee: #6e5d53;
-            --morandi-coffee-light: #837065;
-            --morandi-coffee-dark: #50423a;
-            --card-border: rgba(184, 165, 153, 0.3);
-            --text-light: #f5f2ef;
-            --text-sub: #d8cecf;
-            --accent-warm: #d39e82;
-            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.5);
-            --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.7);
+            --bg-overlay: rgba(255, 255, 255, 0.88);
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sub: #555555;
+            --primary-pop: #E05A47; /* 鮮豔暖珊瑚橘，強烈吸引視覺 */
+            --accent-yellow: #D97706; /* 鮮豔芥末黃 */
+            --border-light: #e5e7eb;
+            --shadow-square: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
 
         body {
-            background-color: var(--bg-black);
-            color: var(--text-light);
-            line-height: 1.8;
-            position: relative;
+            background-color: #fafafa;
+            color: var(--text-main);
+            line-height: 1.6;
             min-height: 100vh;
+            position: relative;
         }
 
+        /* 淺色文青背景底圖 */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-image: linear-gradient(
-                to bottom,
-                rgba(18, 18, 18, 0.88),
-                rgba(18, 18, 18, 0.95)
-            ), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop');
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                              url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -55,358 +50,125 @@
         }
 
         .container {
-            max-width: 1140px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 4rem 1.5rem;
         }
 
         header {
-            margin-bottom: 5rem;
             text-align: center;
-            padding: 4.5rem 2rem;
-            background-color: var(--morandi-coffee);
-            border-radius: 24px;
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .tag-pill {
-            display: inline-block;
-            padding: 0.4rem 1.4rem;
-            background-color: rgba(211, 158, 130, 0.2);
-            color: var(--accent-warm);
-            border-radius: 50px;
-            font-size: 1.05rem;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 3.5rem;
         }
 
         header h1 {
-            font-size: 3.5rem;
-            font-weight: normal;
-            letter-spacing: 3px;
-            color: var(--text-light);
+            font-size: 2.5rem;
+            color: var(--primary-pop);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
+
+        /* 正方形感 Grid 網格配置 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 正方形視覺卡片 */
+        .square-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-light);
+            border-radius: 8px; /* 微圓角，保持正方感 */
+            padding: 2.2rem;
+            aspect-ratio: 1 / 1; /* 強制接近正方形 proportions */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-square);
+            transition: all 0.3s ease;
+        }
+
+        .square-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-pop);
+            box-shadow: 0 15px 35px rgba(224, 90, 71, 0.15);
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: #FEF3C7;
+            color: var(--accent-yellow);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            width: fit-content;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            color: var(--text-main);
+            font-weight: 700;
             margin-bottom: 0.8rem;
         }
 
-        header p.subtitle {
-            font-size: 1.4rem;
+        .card-desc {
             color: var(--text-sub);
-            letter-spacing: 1px;
+            font-size: 1rem;
+            flex-grow: 1;
         }
 
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        @media (max-width: 900px) {
-            .grid-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .glass-card {
-            background-color: var(--morandi-coffee);
-            border-radius: 20px;
-            border: 1px solid var(--card-border);
-            padding: 2.8rem;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .glass-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-4px);
-            background-color: var(--morandi-coffee-light);
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: var(--text-light);
-            margin-bottom: 1.8rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-            border-bottom: 2px solid var(--card-border);
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background-color: var(--accent-warm);
-        }
-
-        .about-text {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 1.2rem;
-            line-height: 2;
-        }
-
-        .skills-container {
+        .card-actions {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
         }
 
-        .skill-item {
-            padding: 1.2rem 1.5rem;
-            background-color: var(--morandi-coffee-dark);
-            border-radius: 14px;
-            border-left: 4px solid var(--accent-warm);
-        }
-
-        .skill-item h3 {
-            font-size: 1.35rem;
-            color: var(--text-light);
-            margin-bottom: 0.4rem;
-        }
-
-        .skill-item p {
-            font-size: 1.1rem;
-            color: var(--text-sub);
-        }
-
-        .works-section {
-            margin-top: 5rem;
-        }
-
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .card-link {
+        .btn-main {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem 1rem;
+            background-color: var(--primary-pop);
+            color: #ffffff;
+            font-weight: 700;
             text-decoration: none;
-            color: inherit;
-            display: block;
+            border-radius: 6px;
+            transition: background 0.2s ease;
         }
 
-        .work-card {
-            background-color: var(--morandi-coffee-dark);
-            border-radius: 20px;
-            border: 1px solid var(--card-border);
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.4s ease;
-            height: 100%;
+        .btn-main:hover {
+            background-color: #C84332;
         }
 
-        .work-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            background-color: var(--morandi-coffee);
+        .btn-sub {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem 1rem;
+            background-color: #ffffff;
+            color: var(--primary-pop);
+            border: 2px solid var(--primary-pop);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
 
-        .work-thumb {
-            width: 100%;
-            height: 220px;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .thumb-1 {
-            background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop');
-        }
-
-        .thumb-2 {
-            background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop');
-        }
-
-        .thumb-3 {
-            background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop');
-        }
-
-        .thumb-4 {
-            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop');
-        }
-
-        .work-content {
-            padding: 2rem;
-        }
-
-        .work-content h3 {
-            font-size: 1.45rem;
-            color: var(--text-light);
-            margin-bottom: 0.6rem;
-        }
-
-        .work-content p {
-            font-size: 1.1rem;
-            color: var(--text-sub);
-            line-height: 1.7;
+        .btn-sub:hover {
+            background-color: #FEE2E2;
         }
 
         footer {
-            margin-top: 6rem;
-            padding: 4rem 3rem;
-            background-color: var(--morandi-coffee);
-            border-radius: 24px;
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow-soft);
-        }
-
-        footer h2 {
-            font-size: 2.2rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
+            margin-top: 5rem;
             text-align: center;
-        }
-
-        footer .footer-intro {
-            font-size: 1.2rem;
             color: var(--text-sub);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .contact-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: var(--morandi-coffee-dark);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--card-border);
-        }
-
-        @media (max-width: 768px) {
-            .contact-wrapper {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        .contact-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.2rem;
-            flex: 1;
-        }
-
-        .avatar-upload-box {
-            position: relative;
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--accent-warm);
-            cursor: pointer;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            background-color: var(--morandi-coffee);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .avatar-upload-box:hover {
-            transform: scale(1.03);
-            border-color: #ffffff;
-        }
-
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-        }
-
-        .avatar-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-sub);
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        .avatar-placeholder span {
-            font-size: 1.4rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .avatar-upload-box input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            background-color: var(--accent-warm);
-            color: #ffffff;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .contact-btn:hover {
-            background-color: #be8467;
-            transform: scale(1.04);
-        }
-
-        .contact-right {
-            flex: 1.2;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.15rem;
-            color: var(--text-light);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.8rem 1.2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .info-item .icon {
-            font-size: 1.3rem;
-            color: var(--accent-warm);
-        }
-
-        .info-item a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .info-item a:hover {
-            color: var(--accent-warm);
-        }
-
-        .copyright {
-            margin-top: 3rem;
             font-size: 0.95rem;
-            color: var(--text-sub);
-            text-align: center;
         }
     </style>
 </head>
@@ -416,137 +178,41 @@
 
     <div class="container">
         <header>
-            <span class="tag-pill">CREATIVE PORTFOLIO</span>
-            <h1>陳語彤 Karin</h1>
-            <p class="subtitle">視覺影像與媒體設計 個人作品集</p>
+            <h1>陳語彤 Karin 的作品集總覽</h1>
+            <p>展示現代網頁開發、數位科技學習歷程與互動實作成果</p>
         </header>
 
-        <div class="grid-layout">
-            <div class="glass-card">
-                <h2 class="section-title">關於我 / About</h2>
-                <p class="about-text">
-                    你好！我是陳語彤 Karin，專注於視覺影像、光影美學與數位媒體內容創作。
-                </p>
-                <p class="about-text">
-                    擁有豐富的跨國生活視野與實務經驗，擅長捕捉自然的溫暖質感與敘事情感。致力於將莫蘭迪咖啡色調沉穩的美學與當代媒體設計結合，傳遞具備感染力的視覺體驗。
-                </p>
-            </div>
-
-            <div class="glass-card">
-                <h2 class="section-title">專業技能 / Skills</h2>
-                <div class="skills-container">
-                    <div class="skill-item">
-                        <h3>📷 影像製作與調色 (Image & Color Grading)</h3>
-                        <p>精通 Adobe Lightroom 攝影光影優化、自然調光與高質感人像調色。</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>🎬 動態影音剪輯 (Video Production)</h3>
-                        <p>熟練使用 CapCut、InShot 進行短影音企劃、敘事節奏剪輯與社群視覺設計。</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3>📊 專案與數據管理 (Project Management)</h3>
-                        <p>靈活運用 Excel 與數據工具進行專案時程控管、精準計算與檔案歸檔系統化。</p>
-                    </div>
+        <main class="card-grid">
+            <!-- 卡片 1：數位科技概論 -->
+            <div class="square-card">
+                <div>
+                    <span class="card-tag">核心專案</span>
+                    <h2 class="card-title">數位科技概論作業</h2>
+                    <p class="card-desc">整合 HTML5 語意化結構、網頁設計理念與個人作品集實務呈現。</p>
+                </div>
+                <div class="card-actions">
+                    <a href="digital-technology.html" class="btn-main">進入專案主頁</a>
+                    <a href="act01.html" target="_blank" class="btn-sub">活動 01 獨立頁</a>
                 </div>
             </div>
-        </div>
 
-        <section class="works-section">
-            <div class="glass-card">
-                <h2 class="section-title">精選作品 / Works</h2>
-                <div class="works-grid">
-                    <div class="work-card">
-                        <div class="work-thumb thumb-1"></div>
-                        <div class="work-content">
-                            <h3>畢業寫真與光影紀錄</h3>
-                            <p>專注於自然日光抓拍與人物情感表達，完成多組畢業寫真系列與質感調色創作。</p>
-                        </div>
-                    </div>
-
-                    <div class="work-card">
-                        <div class="work-thumb thumb-2"></div>
-                        <div class="work-content">
-                            <h3>短影音動態企劃</h3>
-                            <p>針對當代社群平台視覺特性，製作兼具快節奏與美學氛圍的影音內容。</p>
-                        </div>
-                    </div>
-
-                    <div class="work-card">
-                        <div class="work-thumb thumb-3"></div>
-                        <div class="work-content">
-                            <h3>藝術展演與文化視覺</h3>
-                            <p>結合音樂演奏與視覺企劃，規劃具故事敘事性的展演視覺與推廣素材。</p>
-                        </div>
-                    </div>
-
-                    <!-- 點擊此卡片可跳轉至 digital-technology.html -->
-                    <a href="digital-technology.html" class="card-link">
-                        <div class="work-card">
-                            <div class="work-thumb thumb-4"></div>
-                            <div class="work-content">
-                                <h3>數位科技概論作業 ➔</h3>
-                                <p>結合 GitHub 專案開發、網頁語法實作與莫蘭迪美學視覺排版設計。（點擊前往講義與作業內容）</p>
-                            </div>
-                        </div>
-                    </a>
+            <!-- 卡片 2：活動 01 直接連結 -->
+            <div class="square-card">
+                <div>
+                    <span class="card-tag">HTML 語意化</span>
+                    <h2 class="card-title">活動 01：文字與層級</h2>
+                    <p class="card-desc">展示純 HTML 語意標籤，包含主題層級、劃重點與科學符號展示。</p>
+                </div>
+                <div class="card-actions">
+                    <a href="act01.html" target="_blank" class="btn-main">開啟純 HTML 頁面</a>
                 </div>
             </div>
-        </section>
+        </main>
 
         <footer>
-            <h2>Let's Connect</h2>
-            <p class="footer-intro">想了解更多作品細節與合作交流，歡迎隨時與我聯繫！</p>
-            
-            <div class="contact-wrapper">
-                <div class="contact-left">
-                    <div class="avatar-upload-box" title="點擊上傳大頭照">
-                        <div class="avatar-placeholder" id="avatarPlaceholder">
-                            <span>📷</span>
-                            點擊上傳頭像
-                        </div>
-                        <img id="avatarImage" class="avatar-img" alt="Karin Avatar">
-                        <input type="file" id="avatarInput" accept="image/*">
-                    </div>
-                    <a href="mailto:hebe60716@gmail.com" class="contact-btn">寄信給 Karin</a>
-                </div>
-
-                <div class="contact-right">
-                    <div class="info-item">
-                        <span class="icon">✉️</span>
-                        <span>Email: <a href="mailto:hebe60716@gmail.com">hebe60716@gmail.com</a></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="icon">📞</span>
-                        <span>Phone: <a href="tel:0979060906">0979-060-906</a></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="icon">📸</span>
-                        <span>IG: <a href="https://instagram.com/yt.chen_9.6" target="_blank">yt.chen_9.6</a></span>
-                    </div>
-                </div>
-            </div>
-
-            <p class="copyright">© 2026 陳語彤 Karin. All rights reserved.</p>
+            <p>© 2026 陳語彤 Karin. All rights reserved.</p>
         </footer>
     </div>
 
-    <script>
-        const avatarInput = document.getElementById('avatarInput');
-        const avatarImage = document.getElementById('avatarImage');
-        const avatarPlaceholder = document.getElementById('avatarPlaceholder');
-
-        avatarInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    avatarImage.src = event.target.result;
-                    avatarImage.style.display = 'block';
-                    avatarPlaceholder.style.display = 'none';
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
 </body>
 </html>
