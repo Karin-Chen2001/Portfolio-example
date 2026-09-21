@@ -55,7 +55,7 @@
             padding: 3.5rem 1.5rem;
         }
 
-        /* 個人簡介與頭貼區塊 (正方形感覺) */
+        /* 個人簡介與頭貼區塊 (正方形感) */
         .profile-card {
             background-color: var(--card-bg);
             border: 2px solid var(--border-light);
@@ -78,27 +78,61 @@
             }
         }
 
-        .avatar-box {
-            width: 160px;
-            height: 160px;
-            border-radius: 20px; /* 微圓角正方形 */
+        .avatar-upload-box {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 16px; /* 正方形質感微圓角 */
             overflow: hidden;
             border: 3px solid var(--primary-pop);
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(224, 90, 71, 0.2);
+            transition: all 0.3s ease;
+            background-color: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
             margin-bottom: 1.5rem;
-            box-shadow: 0 8px 16px rgba(224, 90, 71, 0.2);
         }
 
         @media (min-width: 768px) {
-            .avatar-box {
+            .avatar-upload-box {
                 margin-bottom: 0;
             }
         }
 
-        .avatar-box img {
+        .avatar-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: none;
+        }
+
+        .avatar-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .avatar-placeholder span {
+            font-size: 1.6rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .avatar-upload-box input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
         }
 
         .profile-info {
@@ -119,14 +153,6 @@
             margin-bottom: 1rem;
         }
 
-        .profile-info p.bio {
-            color: var(--text-main);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        /* 聯絡資料卡片 */
         .contact-links {
             display: flex;
             flex-wrap: wrap;
@@ -280,23 +306,25 @@
 
     <div class="container">
         
-        <!-- 個人頭貼與介紹區塊 -->
+        <!-- 第一版完整的個人頭貼與介紹區塊 -->
         <header class="profile-card">
-            <div class="avatar-box">
-                <!-- 可更換為你的照片檔案，例如 avatar.jpg -->
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop" alt="陳語彤 Karin">
+            <div class="avatar-upload-box" title="點擊上傳大頭照">
+                <div class="avatar-placeholder" id="avatarPlaceholder">
+                    <span>📷</span>
+                    點擊上傳頭像
+                </div>
+                <img id="avatarImage" class="avatar-img" alt="Karin Avatar">
+                <input type="file" id="avatarInput" accept="image/*">
             </div>
+
             <div class="profile-info">
                 <h1>陳語彤 Karin</h1>
-                <div class="subtitle">網頁開發與專案作品集</div>
-                <p class="bio">
-                    你好！我是陳語彤，熱衷於網頁前端開發、視覺設計與數位科技實作。這裡紀錄了我的學習歷程與專案作品，著重於良好的使用者體驗與簡約直覺的介面呈現。
-                </p>
+                <div class="subtitle">作品集總覽</div>
 
-                <!-- 聯繫資料與社群連結 -->
+                <!-- 第一版個人聯繫資料 -->
                 <div class="contact-links">
-                    <a href="mailto:hebe60716@gmail.com" class="contact-item"><span>✉️</span> hebe60716@gmail.com</a>
-                    <a href="tel:0979060906" class="contact-item"><span>📞</span> 0979-060-906</a>
+                    <a href="mailto:hebe60716@gmail.com" class="contact-item"><span>✉️</span> Email: hebe60716@gmail.com</a>
+                    <a href="tel:0979060906" class="contact-item"><span>📞</span> Phone: 0979-060-906</a>
                     <a href="https://instagram.com/yt.chen_9.6" target="_blank" class="contact-item"><span>📸</span> IG: yt.chen_9.6</a>
                 </div>
             </div>
@@ -304,27 +332,26 @@
 
         <h2 class="section-title">專案列表</h2>
 
-        <!-- 作品專案 Grid 網格 -->
         <main class="card-grid">
-            <!-- 卡片 1：數位科技概論 -->
+            <!-- 數位科技概論卡片 -->
             <div class="square-card">
                 <div>
                     <span class="card-tag">核心專案</span>
                     <h3 class="card-title">數位科技概論作業</h3>
-                    <p class="card-desc">整合 HTML5 語意化結構、網頁設計理念與個人作品集實務呈現。</p>
+                    <p class="card-desc">包含網頁開發與專案實務展示，以及課程相關活動成果。</p>
                 </div>
                 <div class="card-actions">
-                    <a href="digital-technology.html" class="btn-main">進入專案主頁</a>
-                    <a href="act01.html" target="_blank" class="btn-sub">活動 01 獨立頁</a>
+                    <a href="digital-technology.html" class="btn-main">進入專案頁面</a>
+                    <a href="act01.html" target="_blank" class="btn-sub">開啟活動01</a>
                 </div>
             </div>
 
-            <!-- 卡片 2：活動 01 直接連結 -->
+            <!-- 活動 01 卡片 -->
             <div class="square-card">
                 <div>
-                    <span class="card-tag">HTML 語意化</span>
-                    <h3 class="card-title">活動 01：文字與層級</h3>
-                    <p class="card-desc">展示純 HTML 語意標籤，包含主題層級、劃重點與科學符號展示。</p>
+                    <span class="card-tag">HTML 練習</span>
+                    <h3 class="card-title">活動 01：文字與層級標籤</h3>
+                    <p class="card-desc">展示 HTML 語意化文字標籤、主題層級與科學符號。</p>
                 </div>
                 <div class="card-actions">
                     <a href="act01.html" target="_blank" class="btn-main">開啟純 HTML 頁面</a>
@@ -337,5 +364,23 @@
         </footer>
     </div>
 
+    <script>
+        const avatarInput = document.getElementById('avatarInput');
+        const avatarImage = document.getElementById('avatarImage');
+        const avatarPlaceholder = document.getElementById('avatarPlaceholder');
+
+        avatarInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    avatarImage.src = event.target.result;
+                    avatarImage.style.display = 'block';
+                    avatarPlaceholder.style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>
