@@ -4,231 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>數位科技概論 - HTML 活動 01-04 成果頁</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans TC', sans-serif; }
-        body { background-color: #fafafa; color: #111111; line-height: 1.6; padding: 2rem 1rem; }
-        .container { max-width: 850px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .nav-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e5e7eb; padding-bottom: 1rem; }
-        .btn-back { color: #1C4D3B; text-decoration: none; font-weight: 700; font-size: 0.95rem; }
-        .btn-back:hover { text-decoration: underline; }
-        .quick-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; background: #E8F5E9; padding: 0.8rem 1rem; border-radius: 8px; }
-        .quick-nav a { color: #1C4D3B; text-decoration: none; font-weight: 700; font-size: 0.88rem; padding: 0.3rem 0.6rem; border-radius: 4px; background: #ffffff; }
-        .quick-nav a:hover { background: #1C4D3B; color: #ffffff; }
-        section { margin-bottom: 3rem; }
-        hr { border: 0; height: 1px; background: #e5e7eb; margin: 3rem 0; }
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        form { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e7eb; }
-        fieldset { border: 1px solid #ddd; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; }
-        legend { font-weight: bold; padding: 0 0.4rem; }
-    </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- 頂部導覽列 -->
-        <div class="nav-header">
-            <a href="digital-technology.html" class="btn-back">← 返回課程作業目錄</a>
-            <span style="color: #555555; font-size: 0.9rem;">HTML 基礎實作集合頁</span>
-        </div>
+    <!-- 頂部返回與導覽區 -->
+    <p><a href="digital-technology.html">← 返回課程作業目錄</a></p>
 
-        <div class="quick-nav">
-            <span style="font-weight: bold; color: #1C4D3B; align-self: center;">快速前往：</span>
-            <a href="#activity-01">活動 01</a>
-            <a href="#activity-02">活動 02</a>
-            <a href="#activity-03">活動 03</a>
-            <a href="#activity-04">活動 04</a>
-        </div>
+    <p>
+        <b>快速前往：</b>
+        <a href="#activity-01">活動 01</a> |
+        <a href="#activity-02">活動 02</a> |
+        <a href="#activity-03">活動 03</a> |
+        <a href="#activity-04">活動 04</a>
+    </p>
 
-        <!-- ========================================== -->
-        <!-- 活動 01：水與生活：小小科學探索日 -->
-        <!-- ========================================== -->
-        <section id="activity-01">
-            <h1>水與生活：小小科學探索日</h1>
-            <p>一起從生活中的水，發現科學的有趣之處。</p>
+    <hr>
 
-            <h2>活動介紹</h2>
-            <p>這次活動適合國小中年級學生，請帶著好奇心一起參加。</p>
+    <!-- ========================================== -->
+    <!-- 活動 01：水與生活：小小科學探索日 -->
+    <!-- ========================================== -->
+    <section id="activity-01">
+        <h1>水與生活：小小科學探索日</h1>
+        <p>一起從生活中的水，發現科學的有趣之處。</p>
 
-            <h3>觀察水的樣子</h3>
-            <p>看看不同容器中的水，試著說出你觀察到的變化。</p>
+        <h2>活動介紹</h2>
+        <p>這次活動適合國小中年級學生，請帶著好奇心一起參加。</p>
 
-            <h3>認識水的名字</h3>
-            <p>水的化學式是 H<sub>2</sub>O。</p>
+        <h3>觀察水的樣子</h3>
+        <p>看看不同容器中的水，試著說出你觀察到的變化。</p>
 
-            <h2>參加前的小提醒</h2>
-            <p>請<b>自備水壺</b>，並準備一本觀察筆記。</p>
-            <p>今天的探索口號是：<i>先觀察，再提問！</i></p>
-            <p>我們將使用面積為 100cm<sup>2</sup> 的方形觀察卡。</p>
-        </section>
+        <h3>認識水的名字</h3>
+        <p>水的化學式是 H<sub>2</sub>O。</p>
 
-        <hr>
+        <h2>參加前的小提醒</h2>
+        <p>請<b>自備水壺</b>，並準備一本觀察筆記。</p>
+        <p>今天的探索口號是：<i>先觀察，再提問！</i></p>
+        <p>我們將使用面積為 100cm<sup>2</sup> 的方形觀察卡。</p>
+    </section>
 
-        <!-- ========================================== -->
-        <!-- 活動 02：校園自然觀察任務卡 -->
-        <!-- ========================================== -->
-        <section id="activity-02">
-            <h1>校園自然觀察任務卡</h1>
-            <p>今天我們用眼睛觀察，也用文字記錄發現。</p>
+    <hr>
 
-            <h2>任務一：看看葉脈</h2>
-            <p>觀察葉片圖片，找出葉脈延伸的方向。</p>
-            <!-- 葉片圖片 -->
-            <img src="media-02/leaf-photo.png" alt="清晨陽光透過綠色葉片，清楚呈現葉脈的圖片" width="240">
+    <!-- ========================================== -->
+    <!-- 活動 02：校園自然觀察任務卡 -->
+    <!-- ========================================== -->
+    <section id="activity-02">
+        <h1>校園自然觀察任務卡</h1>
+        <p>今天我們用眼睛觀察，也用文字記錄發現。</p>
 
-            <h2>任務二：準備開始</h2>
-            <p>按下播放，聽到三個由低到高的短音後，開始你的觀察。</p>
-            <!-- 音訊檔 -->
-            <audio src="media-02/notice.wav" controls></audio>
+        <h2>任務一：看看葉脈</h2>
+        <p>觀察葉片圖片，找出葉脈延伸的方向。</p>
+        <!-- 葉片圖片 -->
+        <img src="media-02/leaf-photo.png" alt="清晨陽光透過綠色葉片，清楚呈現葉脈的圖片" width="240">
 
-            <h2>任務三：觀察花朵</h2>
-            <p>播放短片，看看花朵怎麼移動，再用一句話描述。</p>
-            <!-- 影片檔 -->
-            <video src="media-02/flower.mp4" controls width="300"></video>
-            <p>花朵在微風中輕輕搖曳，展現自然律動。</p>
+        <h2>任務二：準備開始</h2>
+        <p>按下播放，聽到三個由低到高的短音後，開始你的觀察。</p>
+        <!-- 音訊檔 -->
+        <audio src="media-02/notice.wav" controls></audio>
 
-            <h2>圖片格式展示與對比</h2>
-            <!-- 一般照片檔與透明背景 PNG 展示 -->
-            <p>一般背景照片（flower-photo.png）：</p>
-            <img src="media-02/flower-photo.png" alt="含背景的粉紅花朵照片" width="240">
+        <h2>任務三：觀察花朵</h2>
+        <p>播放短片，看看花朵怎麼移動，再用一句話描述。</p>
+        <!-- 影片檔 -->
+        <video src="media-02/flower.mp4" controls width="300"></video>
+        <p>花朵在微風中輕輕搖曳，展現自然律動。</p>
 
-            <p>透明背景圖片（flower-transparent.png）：</p>
-            <img src="media-02/flower-transparent.png" alt="透明背景的粉紅花朵與枝葉" width="240">
+        <h2>圖片格式展示與對比</h2>
+        <!-- 一般照片檔與透明背景 PNG 展示 -->
+        <p>一般背景照片（flower-photo.png）：</p>
+        <img src="media-02/flower-photo.png" alt="含背景的粉紅花朵照片" width="240">
 
-            <h2>圖片格式展示：船長行事曆</h2>
-            <!-- 向量圖 SVG 展示 -->
-            <img src="media-02/captain-calendar.svg" alt="船長的一週行事曆" width="700">
-            <p>文字版行程：週一出航準備、週三抵達港口、週五補給裝備。</p>
+        <p>透明背景圖片（flower-transparent.png）：</p>
+        <img src="media-02/flower-transparent.png" alt="透明背景的粉紅花朵與枝葉" width="240">
 
-            <p><small>素材來源：MDN 與授權練習素材</small></p>
-        </section>
+        <h2>圖片格式展示：船長行事曆</h2>
+        <!-- 向量圖 SVG 展示 -->
+        <img src="media-02/captain-calendar.svg" alt="船長的一週行事曆" width="700">
+        <p>文字版行程：週一出航準備、週三抵達港口、週五補給裝備。</p>
 
-        <hr>
+        <p><small>素材來源：MDN 與授權練習素材</small></p>
+    </section>
 
-        <!-- ========================================== -->
-        <!-- 活動 03：紙橋挑戰社：活動準備頁 -->
-        <!-- ========================================== -->
-        <section id="activity-03">
-            <h1>紙橋挑戰社：活動準備頁</h1>
-            <p>我們要用簡單的材料，設計一座能承重的紙橋。</p>
+    <hr>
 
-            <h2>要帶的材料</h2>
-            <ul>
-                <li>A4紙3張</li>
-                <li>膠帶1卷</li>
-                <li>積木10個</li>
-            </ul>
+    <!-- ========================================== -->
+    <!-- 活動 03：紙橋挑戰社：活動準備頁 -->
+    <!-- ========================================== -->
+    <section id="activity-03">
+        <h1>紙橋挑戰社：活動準備頁</h1>
+        <p>我們要用簡單的材料，設計一座能承重的紙橋。</p>
 
-            <h2>挑戰步驟</h2>
-            <ol>
-                <li>先畫出紙橋草圖</li>
-                <li>再折出橋面並固定</li>
-                <li>逐一放上積木，觀察能承受的重量</li>
-                <li>記錄結果，討論如何改進</li>
-            </ol>
+        <h2>要帶的材料</h2>
+        <ul>
+            <li>A4紙3張</li>
+            <li>膠帶1卷</li>
+            <li>積木10個</li>
+        </ul>
 
-            <h2>小組分工</h2>
-            <table border="1">
-                <caption>小組任務分工表</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">角色</th>
-                        <th scope="col">負責工作</th>
-                        <th scope="col">預計成果</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>設計員</td>
-                        <td>畫出紙橋草圖</td>
-                        <td>一張草圖</td>
-                    </tr>
-                    <tr>
-                        <td>製作員</td>
-                        <td>依照草圖組裝</td>
-                        <td>一座紙橋</td>
-                    </tr>
-                    <tr>
-                        <td>紀錄員</td>
-                        <td>記錄測試結果</td>
-                        <td>一份測試紀錄</td>
-                    </tr>
-                    <tr>
-                        <td>測試員</td>
-                        <td>放置積木並進行承力測試</td>
-                        <td>承重數據報告</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <h2>挑戰步驟</h2>
+        <ol>
+            <li>先畫出紙橋草圖</li>
+            <li>再折出橋面並固定</li>
+            <li>逐一放上積木，觀察能承受的重量</li>
+            <li>記錄結果，討論如何改進</li>
+        </ol>
 
-        <hr>
+        <h2>小組分工</h2>
+        <table border="1">
+            <caption>小組任務分工表</caption>
+            <thead>
+                <tr>
+                    <th scope="col">角色</th>
+                    <th scope="col">負責工作</th>
+                    <th scope="col">預計成果</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>設計員</td>
+                    <td>畫出紙橋草圖</td>
+                    <td>一張草圖</td>
+                </tr>
+                <tr>
+                    <td>製作員</td>
+                    <td>依照草圖組裝</td>
+                    <td>一座紙橋</td>
+                </tr>
+                <tr>
+                    <td>紀錄員</td>
+                    <td>記錄測試結果</td>
+                    <td>一份測試紀錄</td>
+                </tr>
+                <tr>
+                    <td>測試員</td>
+                    <td>放置積木並進行承力測試</td>
+                    <td>承重數據報告</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-        <!-- ========================================== -->
-        <!-- 活動 04：放學後社團體驗表 -->
-        <!-- ========================================== -->
-        <section id="activity-04">
-            <h1>放學後社團體驗表</h1>
-            <p>這是介面練習，資料不會送出或保存，不能當成正式報名。</p>
+    <hr>
 
-            <form>
+    <!-- ========================================== -->
+    <!-- 活動 04：放學後社團體驗表 -->
+    <!-- ========================================== -->
+    <section id="activity-04">
+        <h1>放學後社團體驗表</h1>
+        <p>這是介面練習，資料不會送出或保存，不能當成正式報名。</p>
+
+        <form>
+            <p>
+                <label for="nickname">我的暱稱</label><br>
+                <input type="text" id="nickname" name="nickname" placeholder="例如：小星星">
+            </p>
+
+            <p>
+                <label for="club">想體驗的社團</label><br>
+                <select id="club" name="club">
+                    <option value="">請選擇社團</option>
+                    <option value="story">故事劇場</option>
+                    <option value="science">科學手作</option>
+                    <option value="boardgame">桌遊挑戰</option>
+                </select>
+            </p>
+
+            <fieldset>
+                <legend>方便參加的日子</legend>
+                <p><label><input type="radio" name="day" value="tue"> 星期二</label></p>
+                <p><label><input type="radio" name="day" value="thu"> 星期四</label></p>
+                <p><label><input type="radio" name="day" value="fri"> 星期五</label></p>
+            </fieldset>
+
+            <fieldset>
+                <legend>我期待的活動方式</legend>
+                <p><label><input type="checkbox" name="style" value="hands-on"> 動手製作</label></p>
+                <p><label><input type="checkbox" name="style" value="cooperation"> 和同學合作</label></p>
+                <p><label><input type="checkbox" name="style" value="presentation"> 上台分享</label></p>
+            </fieldset>
+
+            <p>
+                <label for="message">想告訴老師的事</label><br>
+                <textarea id="message" name="message" rows="5" cols="32" placeholder="例如：我想和同學一起完成一個小作品"></textarea>
+            </p>
+
+            <!-- 自訂欄位與說明 -->
+            <fieldset>
+                <legend>學習期待調查（自訂欄位）</legend>
                 <p>
-                    <label for="nickname">我的暱稱</label><br>
-                    <input type="text" id="nickname" name="nickname" placeholder="例如：小星星">
-                </p>
-
-                <p>
-                    <label for="club">想體驗的社團</label><br>
-                    <select id="club" name="club">
-                        <option value="">請選擇社團</option>
-                        <option value="story">故事劇場</option>
-                        <option value="science">科學手作</option>
-                        <option value="boardgame">桌遊挑戰</option>
+                    <label for="expectation">這次體驗你最想收穫什麼？</label><br>
+                    <select id="expectation" name="expectation">
+                        <option value="skill">學到新技能</option>
+                        <option value="friend">結交新朋友</option>
+                        <option value="fun">單純享受樂趣</option>
                     </select>
                 </p>
+                <p><small>選擇下拉選單理由：讓學生從預設的明確項目中挑選主要目標，介面簡潔且便於後續分類整理統計。</small></p>
+            </fieldset>
 
-                <fieldset>
-                    <legend>方便參加的日子</legend>
-                    <p><label><input type="radio" name="day" value="tue"> 星期二</label></p>
-                    <p><label><input type="radio" name="day" value="thu"> 星期四</label></p>
-                    <p><label><input type="radio" name="day" value="fri"> 星期五</label></p>
-                </fieldset>
-
-                <fieldset>
-                    <legend>我期待的活動方式</legend>
-                    <p><label><input type="checkbox" name="style" value="hands-on"> 動手製作</label></p>
-                    <p><label><input type="checkbox" name="style" value="cooperation"> 和同學合作</label></p>
-                    <p><label><input type="checkbox" name="style" value="presentation"> 上台分享</label></p>
-                </fieldset>
-
-                <p>
-                    <label for="message">想告訴老師的事</label><br>
-                    <textarea id="message" name="message" rows="5" cols="32" placeholder="例如：我想和同學一起完成一個小作品"></textarea>
-                </p>
-
-                <!-- 自訂欄位與說明 -->
-                <fieldset>
-                    <legend>學習期待調查（自訂欄位）</legend>
-                    <p>
-                        <label for="expectation">這次體驗你最想收穫什麼？</label><br>
-                        <select id="expectation" name="expectation">
-                            <option value="skill">學到新技能</option>
-                            <option value="friend">結交新朋友</option>
-                            <option value="fun">單純享受樂趣</option>
-                        </select>
-                    </p>
-                    <p><small>選擇下拉選單理由：讓學生從預設的明確項目中挑選主要目標，介面簡潔且便於後續分類整理統計。</small></p>
-                </fieldset>
-
-                <p>
-                    <button type="button" disabled>練習版，尚未開放報名</button>
-                </p>
-            </form>
-        </section>
-    </div>
+            <p>
+                <button type="button" disabled>練習版，尚未開放報名</button>
+            </p>
+        </form>
+    </section>
 
 </body>
 </html>
