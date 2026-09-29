@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML 的小作業們</title>
+    <title>數位科技概論 - WEEK 02</title>
 </head>
 <body>
 
-    <!-- 活動 01 -->
-    <section>
-        <h1>HTML 的小作業們</h1>
-        <p>一起從生活中的水，發現科學的有趣之處。</p>
+    <h1>數位科技概論 | WEEK 02</h1>
+    <p>請點選下方按鈕選單，快速切換至各項活動內容：</p>
 
-        <hr>
+    <!-- 活動點選按鈕選單 -->
+    <nav>
+        <p>
+            <a href="#html-homework"><button type="button">HTML 的小作業們</button></a>
+            <a href="#activity-05"><button type="button">活動 05：同一份內容，換一種風格</button></a>
+            <a href="#activity-06"><button type="button">活動 06：我的網站適合哪種版型？</button></a>
+            <a href="#activity-07"><button type="button">活動 07：把內容排得整齊</button></a>
+            <a href="#activity-08"><button type="button">活動 08：從電腦版變成手機版</button></a>
+            <a href="#activity-09"><button type="button">活動 09：先機檢，再修正無障礙問題</button></a>
+        </p>
+    </nav>
 
-        <h2>活動介紹</h2>
-        <p>這次活動適合國小中年級學生，請帶著好奇心一起參加。</p>
+    <hr>
 
-        <h2>觀察水的樣子</h2>
-        <p>看看不同容器中的水，試著說出你觀察到的變化。</p>
-
-        <h2>認識水的名字</h2>
-        <p>水的化學式是 H<sub>2</sub>O。</p>
-
-        <hr>
-
-        <h3>參加前的小提醒</h3>
-        <p>請<b>自備水壺</b>，並準備一本觀察筆記。</p>
-        <p>今天的探索口號是：<i>先觀察，再提問！</i></p>
-        <p>我們將使用面積為 100 cm<sup>2</sup> 的方形觀察卡。</p>
+    <!-- 活動 01~04 合併區塊 -->
+    <section id="html-homework">
+        <h2>HTML 的小作業們</h2>
+        <p>包含活動 01~04 的 HTML 基礎練習（小站建立、影音媒體嵌入、學習計畫整理與報名表設計）。</p>
     </section>
 
     <hr>
 
-    <!-- 活動 5 -->
-    <section>
-        <h2>活動 5：船長行事曆</h2>
+    <!-- 活動 05 -->
+    <section id="activity-05">
+        <h2>活動 05：同一份內容，換一種風格</h2>
+        <p>進階 CSS 練習：學習如何使用 CSS 為相同的 HTML 結構套用不同的視覺風格與主題樣式。</p>
         <p>
             <img src="captain-calendar.svg" alt="船長行事曆" width="500">
         </p>
@@ -43,10 +43,10 @@
 
     <hr>
 
-    <!-- 活動 6 -->
-    <section>
-        <h2>活動 6：看看葉脈</h2>
-        <p>觀察葉片圖片，找出葉脈延伸的方向。</p>
+    <!-- 活動 06 -->
+    <section id="activity-06">
+        <h2>活動 06：我的網站適合哪種版型？</h2>
+        <p>網頁版型佈局：探索並評估最適合自己網站內容的版型配置與視覺架構。</p>
         <p>
             <img src="leaf-photo.png" alt="葉脈觀察圖片" width="400">
         </p>
@@ -54,10 +54,10 @@
 
     <hr>
 
-    <!-- 活動 7 -->
-    <section>
-        <h2>活動 7：提示音效</h2>
-        <p>按下播放，聽到三個由低到高的短音後，開始你的觀察。</p>
+    <!-- 活動 07 -->
+    <section id="activity-07">
+        <h2>活動 07：把內容排得整齊</h2>
+        <p>CSS 排版元件應用：運用 Flexbox / Grid 排版工具將文字、圖片與各項元素排列整齊。</p>
         <p>
             <audio controls src="notice.wav">
                 您的瀏覽器不支援播放聲音。
@@ -67,10 +67,10 @@
 
     <hr>
 
-    <!-- 活動 8 -->
-    <section>
-        <h2>活動 8：觀察花朵（影片）</h2>
-        <p>播放短片，看看花朵怎麼移動，再用一句話描述。</p>
+    <!-- 活動 08 -->
+    <section id="activity-08">
+        <h2>活動 08：從電腦版變成手機版</h2>
+        <p>響應式網頁設計 (RWD)：運用 Media Queries 技術讓網頁能完美呈現於電腦與手機等不同螢幕尺寸。</p>
         <p>
             <video controls width="400">
                 <source src="flower.mp4" type="video/mp4">
@@ -81,17 +81,14 @@
 
     <hr>
 
-    <!-- 活動 9 -->
-    <section>
-        <h2>活動 9：花朵寫真（去背圖）</h2>
+    <!-- 活動 09 -->
+    <section id="activity-09">
+        <h2>活動 09：先機檢，再修正無障礙問題</h2>
+        <p>無障礙網頁與自動化檢測：進行無障礙問題自我檢查，優化網站易用性與可存取性。</p>
         <p>
             <img src="flower-transparent.png" alt="去背花朵圖片" width="300">
         </p>
     </section>
-
-    <hr>
-
-    <p><a href="digital-technology.html">← 返回數位科技概論主頁</a></p>
 
 </body>
 </html>
