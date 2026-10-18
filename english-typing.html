@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英打學習軟體設計作品</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans TC', sans-serif; }
+        :root {
+            --bg-overlay: rgba(255, 255, 255, 0.92);
+            --card-bg: #ffffff;
+            --text-main: #111111;
+            --text-sub: #555555;
+            --primary-green: #1C4D3B;
+            --accent-green: #2E7D62;
+            --light-green-bg: #E8F5E9;
+            --border-light: #e5e7eb;
+            --shadow-square: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+        body { background-color: #fafafa; color: var(--text-main); line-height: 1.5; min-height: 100vh; position: relative; }
+        .bg-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed; z-index: -1;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 3.5rem 1.5rem 2rem; }
+        .back-nav { margin-bottom: 1.5rem; }
+        .btn-back { display: inline-block; color: var(--primary-green); text-decoration: none; font-weight: 700; font-size: 0.95rem; }
+        .btn-back:hover { text-decoration: underline; }
+        .main-header { text-align: center; margin-bottom: 2.5rem; }
+        .main-header h1 { font-size: 2.2rem; font-weight: 900; color: #111111; margin-bottom: 0.6rem; }
+        .main-header p { color: var(--text-sub); font-size: 1.05rem; }
+        .section-title { font-size: 1.35rem; color: var(--primary-green); font-weight: 700; margin: 2rem 0 1.2rem; border-left: 4px solid var(--primary-green); padding-left: 0.8rem; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+        .square-card { background-color: var(--card-bg); border: 1.5px solid var(--border-light); border-radius: 10px; padding: 1.2rem 1.4rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-square); transition: all 0.25s ease; }
+        .square-card:hover { transform: translateY(-3px); border-color: var(--primary-green); box-shadow: 0 10px 25px rgba(28, 77, 59, 0.12); }
+        .card-tag { display: inline-block; background-color: var(--light-green-bg); color: var(--primary-green); font-weight: 700; font-size: 0.8rem; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem; width: fit-content; }
+        .card-title { font-size: 1.15rem; color: var(--text-main); font-weight: 700; margin-bottom: 0.5rem; }
+        .card-desc { color: var(--text-sub); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem; }
+        .btn-main { display: block; width: 100%; text-align: center; padding: 0.6rem 1rem; background-color: var(--primary-green); color: #ffffff; font-size: 0.9rem; font-weight: 700; text-decoration: none; border-radius: 6px; transition: background 0.2s ease; }
+        .btn-main:hover { background-color: var(--accent-green); }
+        footer { text-align: center; color: var(--text-sub); font-size: 0.85rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); margin-top: 2rem; }
 
+        /* ===== 本頁新增的樣式 ===== */
+        .version { grid-column: 1 / -1; }
+        .levels { padding-left: 1.4rem; margin-bottom: 1rem; color: var(--text-sub); font-size: 0.88rem; line-height: 1.7; }
+        .coming { border-style: dashed; box-shadow: none; text-align: center; }
+        .coming:hover { transform: none; box-shadow: none; border-color: var(--border-light); }
+        details { margin-top: 1rem; }
+        summary { cursor: pointer; font-weight: 700; font-size: 0.9rem; color: var(--primary-green); }
+        .preview { display: block; width: 100%; height: 480px; margin-top: 0.8rem; border: 1.5px solid var(--border-light); border-radius: 8px; background: #ffffff; }
+        .about { color: var(--text-sub); font-size: 0.95rem; line-height: 1.7; }
+        .sr-only { position: absolute; left: -9999px; }
+        a:focus-visible, summary:focus-visible { outline: 3px solid #b45309; outline-offset: 3px; }
+        @media (max-width: 600px) {
+            .main-header h1 { font-size: 1.8rem; }
+            .preview { height: 360px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="back-nav">
+            <a href="digital-technology.html" class="btn-back">← 返回作業目錄</a>
+        </div>
+
+        <header class="main-header">
+            <h1>英打學習軟體設計作品</h1>
+            <p>從一顆按鈕開始，一關一關做出英文打字學習遊戲。以下收錄各個版本的作品連結。</p>
+        </header>
+
+        <main>
+            <h2 class="section-title">作品版本</h2>
+            <div class="card-grid">
+
+                <!-- ========== 版本卡片（新增版本時，複製整個 square-card 區塊） ========== -->
+                <div class="square-card version">
+                    <div>
+                        <span class="card-tag">英打樂園</span>
+                        <h3 class="card-title">英打樂園：開發歷程（English-typing-3-5）</h3>
+                        <p class="card-desc">用鍵盤輸入字母的英文打字遊戲，每一關各加入一項新功能，每關都有可以直接遊玩的版本。</p>
+                        <ol class="levels">
+                            <li>第 1 關：種下第一顆種子（標題與開始按鈕）</li>
+                            <li>第 2 關：鍵盤長出來了（按下開始會發出嗶嗶聲）</li>
+                            <li>第 3 關：餵飽小怪獸（按對 A、S、D、F 鍵餵食怪獸、獲得糖果）</li>
+                            <li>第 4 關：水果雨來了（在水果落地前打出對應的字母）</li>
+                        </ol>
+                    </div>
+                    <a href="https://karin-chen2001.github.io/English-typing-3-5/" class="btn-main" target="_blank" rel="noopener">開啟作品網頁<span class="sr-only">（另開新視窗）</span></a>
+
+                    <details>
+                        <summary>在這裡預覽作品</summary>
+                        <iframe class="preview" src="https://karin-chen2001.github.io/English-typing-3-5/" title="英打樂園作品預覽" loading="lazy"></iframe>
+                    </details>
+                </div>
+                <!-- ========== 版本卡片結束 ========== -->
+
+                <div class="square-card version coming">
+                    <div>
+                        <h3 class="card-title">更多版本製作中</h3>
+                        <p class="card-desc" style="margin-bottom:0;">之後完成的新版本會放在這裡。</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">設計說明</h2>
+            <p class="about">這個作品想讓初學者不用一開始就面對整個鍵盤，而是從少數按鍵開始，透過餵怪獸、接水果等遊戲任務慢慢熟悉英文字母位置。（請改成你自己的設計想法）</p>
+        </main>
+
+        <footer>
+            <p>© 2026 Karin. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
