@@ -1,24 +1,137 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>活動 08：RWD 響應式網頁設計</title>
-    <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .nav { margin-bottom: 1.5rem; }
-        .nav a { color: #1C4D3B; text-decoration: none; font-weight: bold; }
-        .responsive-box { background: #1C4D3B; color: white; padding: 20px; text-align: center; border-radius: 8px; }
-        @media (max-width: 600px) {
-            .responsive-box { background: #2E7D62; }
-        }
-    </style>
+<meta charset="UTF-8">
+<!-- RWD 第一步：沒有這行，手機會把網頁縮小成電腦版 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活動 08：從電腦版變成手機版</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 0; padding: 24px; line-height: 1.7; color: #1f2933; background: #f4f6f8; font-size: 18px; }
+  main { max-width: 1000px; margin: 0 auto; }
+  h2 { margin-top: 36px; }
+  a { color: #0b4f9c; }
+  pre { background: #1e1e1e; color: #e6e6e6; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: .85rem; }
+
+  /* 目前裝置提示（用 CSS 偽元素顯示） */
+  .bp { position: sticky; top: 8px; z-index: 5; display: inline-block; padding: 6px 14px; border-radius: 20px; background: #0b4f9c; color: #fff; font-weight: bold; }
+  .bp::after { content: "電腦版（寬度 > 900px）"; }
+
+  /* 導覽列 */
+  .navbar { display: flex; justify-content: space-between; align-items: center; background: #0b4f9c; padding: 12px 20px; border-radius: 8px; margin: 16px 0; }
+  .navbar .logo { color: #fff; font-weight: bold; }
+  .navbar ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+  .navbar a { color: #fff; text-decoration: none; padding: 4px 8px; }
+  .navbar a:hover, .navbar a:focus-visible { background: #fff; color: #0b4f9c; }
+
+  /* 卡片：電腦版 3 欄 */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: #fff; border: 1px solid #cbd2d9; border-radius: 10px; padding: 18px; }
+  .card h3 { margin-top: 0; color: #0b4f9c; }
+
+  /* 彈性圖片：不會超出容器 */
+  .hero { width: 100%; height: auto; display: block; border-radius: 10px; }
+
+  /* ===== 平板：寬度 <= 900px，改成 2 欄 ===== */
+  @media (max-width: 900px) {
+    .bp::after { content: "平板版（寬度 ≤ 900px）"; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    body { font-size: 17px; }
+  }
+
+  /* ===== 手機：寬度 <= 600px，改成 1 欄、導覽列直排 ===== */
+  @media (max-width: 600px) {
+    .bp::after { content: "手機版（寬度 ≤ 600px）"; }
+    body { padding: 14px; font-size: 16px; }
+    .cards { grid-template-columns: 1fr; }
+    .navbar { flex-direction: column; gap: 8px; }
+    .navbar ul { flex-direction: column; gap: 6px; align-items: center; }
+    .navbar a { display: block; padding: 10px 16px; }   /* 加大觸控範圍 */
+  }
+</style>
 </head>
 <body>
-    <div class="nav"><a href="digital-technology.html">← 返回作業目錄</a></div>
-    <h1>活動 08：響應式網頁設計 (RWD)</h1>
-    <div class="responsive-box">
-        <p>縮小瀏覽器寬度（小於 600px）時，本區塊背景顏色會自動改變！</p>
+<header>
+  <p><a href="digital-technology.html">← 返回作業目錄</a></p>
+  <h1>活動 08：從電腦版變成手機版</h1>
+  <p>使用 Media Queries（媒體查詢），讓同一個網頁在電腦、平板、手機上都能清楚閱讀。</p>
+  <p class="bp" role="status" aria-label="目前版面"></p>
+  <p>👉 請拉動瀏覽器視窗寬度，或按 F12 切換成手機模式，觀察版面變化。</p>
+</header>
+
+<main>
+  <nav class="navbar" aria-label="主選單">
+    <span class="logo">Karin 作品集</span>
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="digital-technology.html">課程作業</a></li>
+      <li><a href="activity-09.html">活動 09</a></li>
+    </ul>
+  </nav>
+
+  <section aria-labelledby="s1">
+    <h2 id="s1">一、彈性圖片</h2>
+    <svg class="hero" viewBox="0 0 800 220" role="img" aria-label="藍色漸層的示意橫幅圖">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#0b4f9c"/><stop offset="1" stop-color="#15803d"/></linearGradient>
+      </defs>
+      <rect width="800" height="220" fill="url(#g)"/>
+      <text x="400" y="125" fill="#fff" font-size="40" text-anchor="middle" font-family="sans-serif">圖片會跟著容器縮放</text>
+    </svg>
+    <pre><code>img, svg { max-width: 100%; height: auto; }</code></pre>
+  </section>
+
+  <section aria-labelledby="s2">
+    <h2 id="s2">二、響應式卡片</h2>
+    <div class="cards">
+      <article class="card"><h3>電腦版</h3><p>寬度大於 900px 時，卡片排成 3 欄。</p></article>
+      <article class="card"><h3>平板版</h3><p>寬度 600～900px 時，卡片排成 2 欄。</p></article>
+      <article class="card"><h3>手機版</h3><p>寬度小於 600px 時，卡片變成 1 欄，導覽列改成直排。</p></article>
     </div>
+  </section>
+
+  <section aria-labelledby="s3">
+    <h2 id="s3">三、Media Query 程式碼</h2>
+    <pre><code>/* 預設：電腦版 3 欄 */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+/* 平板 */
+@media (max-width: 900px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 手機 */
+@media (max-width: 600px) {
+  .cards { grid-template-columns: 1fr; }
+  .navbar { flex-direction: column; }
+}</code></pre>
+  </section>
+
+  <section aria-labelledby="s4">
+    <h2 id="s4">四、斷點整理</h2>
+    <table style="border-collapse:collapse;width:100%;background:#fff">
+      <thead>
+        <tr>
+          <th scope="col" style="border:1px solid #999;padding:8px">裝置</th>
+          <th scope="col" style="border:1px solid #999;padding:8px">斷點</th>
+          <th scope="col" style="border:1px solid #999;padding:8px">卡片欄數</th>
+          <th scope="col" style="border:1px solid #999;padding:8px">導覽列</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="border:1px solid #999;padding:8px">電腦</td><td style="border:1px solid #999;padding:8px">&gt; 900px</td><td style="border:1px solid #999;padding:8px">3 欄</td><td style="border:1px solid #999;padding:8px">橫排</td></tr>
+        <tr><td style="border:1px solid #999;padding:8px">平板</td><td style="border:1px solid #999;padding:8px">≤ 900px</td><td style="border:1px solid #999;padding:8px">2 欄</td><td style="border:1px solid #999;padding:8px">橫排</td></tr>
+        <tr><td style="border:1px solid #999;padding:8px">手機</td><td style="border:1px solid #999;padding:8px">≤ 600px</td><td style="border:1px solid #999;padding:8px">1 欄</td><td style="border:1px solid #999;padding:8px">直排、按鈕加大</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="s5">
+    <h2 id="s5">五、心得</h2>
+    <p>手機螢幕窄，所以要把多欄改成單欄、放大可點擊範圍，並用 viewport meta 讓瀏覽器以裝置實際寬度顯示。</p>
+  </section>
+</main>
+
+<footer><p style="text-align:center">© 2026 Karin. All rights reserved.</p></footer>
 </body>
 </html>
