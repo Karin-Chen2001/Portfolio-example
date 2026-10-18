@@ -1,21 +1,167 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>活動 09：無障礙網頁檢測與修正</title>
-    <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
-        .nav { margin-bottom: 1.5rem; }
-        .nav a { color: #1C4D3B; text-decoration: none; font-weight: bold; }
-        .accessible-text { color: #111111; background-color: #ffffff; padding: 10px; border-left: 4px solid #1C4D3B; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活動 09：無障礙網頁檢測與修正</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 0; padding: 24px; line-height: 1.8; color: #1a1a1a; background: #ffffff; font-size: 18px; }
+  main { max-width: 900px; margin: 0 auto; }
+  h2 { margin-top: 40px; }
+  a { color: #0a4a94; text-decoration: underline; }
+
+  /* 跳到主要內容（鍵盤使用者） */
+  .skip-link { position: absolute; left: -9999px; top: 8px; background: #000; color: #fff; padding: 8px 14px; z-index: 10; }
+  .skip-link:focus { left: 8px; }
+
+  /* 清楚的鍵盤焦點 */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 3px solid #b45309;
+    outline-offset: 3px;
+  }
+
+  pre { background: #1e1e1e; color: #f0f0f0; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: .9rem; line-height: 1.6; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #595959; padding: 8px 12px; text-align: left; vertical-align: top; }
+  thead th { background: #e8eef5; }
+
+  /* 修正後的範例 */
+  .fixed-demo { border: 2px solid #15693a; border-radius: 10px; padding: 20px; }
+  .fixed-demo p.muted { color: #595959; }          /* 對比 7.0:1 */
+  form label { display: block; margin-top: 12px; font-weight: bold; }
+  form input, form textarea { width: 100%; padding: 8px; font-size: 1rem; border: 2px solid #595959; border-radius: 6px; }
+  form button { margin-top: 14px; padding: 10px 22px; font-size: 1rem; background: #0a4a94; color: #fff; border: 2px solid #0a4a94; border-radius: 6px; cursor: pointer; }
+  form button:hover { background: #07366d; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
 </head>
 <body>
-    <div class="nav"><a href="digital-technology.html">← 返回作業目錄</a></div>
-    <h1>活動 09：無障礙網頁檢測與優化</h1>
-    <div class="accessible-text">
-        <p>符合高對比度規範的文字，搭配語意化標籤與標題階層，能讓螢幕閱讀器與所有使用者更輕鬆閱讀內容。</p>
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<header>
+  <p><a href="digital-technology.html">← 返回作業目錄</a></p>
+  <h1>活動 09：先機檢，再修正無障礙問題</h1>
+  <p>符合高對比度規範的文字，搭配語意化標籤與標題階層，能讓螢幕閱讀器與所有使用者更輕鬆閱讀內容。</p>
+</header>
+
+<main id="main">
+  <section aria-labelledby="s1">
+    <h2 id="s1">一、機檢工具與結果</h2>
+    <p>使用的檢測工具：</p>
+    <ul>
+      <li>Chrome Lighthouse（Accessibility 分數）</li>
+      <li>WAVE 瀏覽器擴充功能</li>
+      <li>WebAIM Contrast Checker（色彩對比）</li>
+    </ul>
+    <p>修正前檢測出的常見問題：圖片缺少替代文字、文字對比不足、表單欄位沒有標籤、標題層級跳級、缺少 <code>lang</code> 屬性。</p>
+  </section>
+
+  <section aria-labelledby="s2">
+    <h2 id="s2">二、問題與修正對照表</h2>
+    <table>
+      <caption>機檢發現的問題與修正方式</caption>
+      <thead>
+        <tr><th scope="col">問題</th><th scope="col">修正前</th><th scope="col">修正後</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1. 文字對比不足</th>
+          <td><code>color: #aaaaaa</code> 在白底，對比約 2.32:1（未達 4.5:1）</td>
+          <td><code>color: #595959</code> 在白底，對比約 7.0:1（達 AA、AAA）</td>
+        </tr>
+        <tr>
+          <th scope="row">2. 圖片沒有替代文字</th>
+          <td><code>&lt;img src="pond.jpg"&gt;</code></td>
+          <td><code>&lt;img src="pond.jpg" alt="校園中庭的水池與睡蓮"&gt;</code></td>
+        </tr>
+        <tr>
+          <th scope="row">3. 表單欄位沒有標籤</th>
+          <td><code>&lt;input type="text"&gt;</code></td>
+          <td><code>&lt;label for="name"&gt;姓名&lt;/label&gt;&lt;input id="name"&gt;</code></td>
+        </tr>
+        <tr>
+          <th scope="row">4. 標題層級跳級</th>
+          <td>h1 之後直接用 h4</td>
+          <td>依序使用 h1 → h2 → h3</td>
+        </tr>
+        <tr>
+          <th scope="row">5. 沒有語言屬性</th>
+          <td><code>&lt;html&gt;</code></td>
+          <td><code>&lt;html lang="zh-Hant"&gt;</code></td>
+        </tr>
+        <tr>
+          <th scope="row">6. 用 div 當按鈕、鍵盤無法操作</th>
+          <td><code>&lt;div onclick="..."&gt;送出&lt;/div&gt;</code></td>
+          <td><code>&lt;button type="submit"&gt;送出&lt;/button&gt;</code></td>
+        </tr>
+        <tr>
+          <th scope="row">7. 看不到鍵盤焦點</th>
+          <td><code>outline: none</code></td>
+          <td><code>:focus-visible { outline: 3px solid #b45309; }</code></td>
+        </tr>
+        <tr>
+          <th scope="row">8. 連結文字不清楚</th>
+          <td><code>&lt;a href="..."&gt;點這裡&lt;/a&gt;</code></td>
+          <td><code>&lt;a href="..."&gt;查看活動 05 成果&lt;/a&gt;</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="s3">
+    <h2 id="s3">三、修正後的範例</h2>
+    <div class="fixed-demo">
+      <h3>聯絡表單（已修正）</h3>
+      <p class="muted">所有欄位都有標籤，文字對比充足，可用鍵盤 Tab 鍵操作。</p>
+      <figure style="margin:16px 0">
+        <svg viewBox="0 0 400 120" width="100%" role="img" aria-labelledby="fig-title">
+          <title id="fig-title">示意圖：綠色圓形代表水池，周圍有三片葉子</title>
+          <rect width="400" height="120" fill="#e8f5ee"/>
+          <circle cx="200" cy="60" r="40" fill="#1d6fa5"/>
+          <circle cx="130" cy="60" r="14" fill="#15693a"/>
+          <circle cx="270" cy="60" r="14" fill="#15693a"/>
+          <circle cx="200" cy="18" r="10" fill="#15693a"/>
+        </svg>
+        <figcaption>圖 1：以文字說明圖片內容，不只依賴顏色傳達資訊。</figcaption>
+      </figure>
+      <form action="#" onsubmit="event.preventDefault(); document.getElementById('msg').textContent='已送出（示範）';">
+        <label for="name">姓名</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+        <label for="email">電子郵件</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="note">想說的話</label>
+        <textarea id="note" name="note" rows="3"></textarea>
+        <button type="submit">送出</button>
+        <p id="msg" role="status" aria-live="polite"></p>
+      </form>
     </div>
+  </section>
+
+  <section aria-labelledby="s4">
+    <h2 id="s4">四、修正重點程式碼</h2>
+    <pre><code>&lt;html lang="zh-Hant"&gt;
+
+&lt;a class="skip-link" href="#main"&gt;跳到主要內容&lt;/a&gt;
+&lt;main id="main"&gt; ... &lt;/main&gt;
+
+/* 對比 */
+.muted { color: #595959; }   /* 白底 7.0:1 */
+
+/* 焦點 */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #b45309;
+  outline-offset: 3px;
+}</code></pre>
+  </section>
+
+  <section aria-labelledby="s5">
+    <h2 id="s5">五、心得</h2>
+    <p>機檢可以快速找出明顯錯誤，但仍需要用鍵盤操作與閱讀順序實際測試。無障礙設計不只幫助身障者，也讓戶外強光、年長者與所有使用者閱讀更舒服。</p>
+  </section>
+</main>
+
+<footer><p style="text-align:center">© 2026 Karin. All rights reserved.</p></footer>
 </body>
 </html>
