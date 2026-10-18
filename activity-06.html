@@ -1,22 +1,148 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>活動 06：版型與盒模型實作</title>
-    <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .nav { margin-bottom: 1.5rem; }
-        .nav a { color: #1C4D3B; text-decoration: none; font-weight: bold; }
-        .box { background: #e8f5e9; border: 2px dashed #2E7D62; padding: 20px; margin: 15px 0; border-radius: 8px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活動 06：我的網站適合哪種版型？</title>
+<style>
+  body { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; margin: 0; padding: 24px; line-height: 1.7; color: #222; background: #f7f7f7; }
+  main { max-width: 900px; margin: 0 auto; }
+  h2 { margin-top: 36px; }
+  a { color: #0b4f9c; }
+  pre { background: #1e1e1e; color: #e6e6e6; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: .9rem; }
+  table { border-collapse: collapse; width: 100%; background: #fff; }
+  th, td { border: 1px solid #999; padding: 8px 12px; text-align: left; vertical-align: top; }
+
+  /* ===== 一、盒模型示範 ===== */
+  .box-wrap { background: #ffe9b8; padding: 0; display: inline-block; }       /* 橘色 = margin 區 */
+  .box {
+    margin: 24px;                 /* 外距 */
+    border: 8px solid #c2410c;    /* 邊框 */
+    padding: 20px;                /* 內距 */
+    width: 200px;                 /* 內容寬度 */
+    background: #cfe8ff;          /* 藍色 = padding + content */
+    color: #0f172a;
+  }
+  .content-box { box-sizing: content-box; }
+  .border-box  { box-sizing: border-box; }
+  .compare { display: flex; gap: 24px; flex-wrap: wrap; }
+  .legend span { display: inline-block; padding: 2px 10px; margin: 2px 6px 2px 0; border-radius: 4px; color: #111; }
+
+  /* ===== 二、三種版型 ===== */
+  .layout { background: #fff; border: 2px dashed #888; padding: 12px; margin-bottom: 8px; }
+  .layout .b { background: #cfe8ff; border: 1px solid #1d4ed8; padding: 8px; margin: 6px; color: #0f172a; font-size: .95rem; }
+  .layout .hd { background: #1d4ed8; color: #fff; }
+  .layout .ft { background: #334155; color: #fff; }
+  .two-col { display: flex; }
+  .two-col .side { flex: 0 0 28%; }
+  .two-col .main { flex: 1; }
+  .card-row { display: flex; flex-wrap: wrap; }
+  .card-row .b { flex: 1 1 28%; }
+</style>
 </head>
 <body>
-    <div class="nav"><a href="digital-technology.html">← 返回作業目錄</a></div>
-    <h1>活動 06：網頁版型與盒模型 (Box Model)</h1>
-    <div class="box">
-        <h3>盒模型展示區塊</h3>
-        <p>本區塊展示 Padding（內距）、Margin（外距）與 Border（邊框）的結構設定。</p>
+<header>
+  <p><a href="digital-technology.html">← 返回作業目錄</a></p>
+  <h1>活動 06：我的網站適合哪種版型？</h1>
+  <p>先了解每個元素都是一個「盒子」，再比較不同版型的優缺點，最後決定自己的網站要用哪一種。</p>
+</header>
+
+<main>
+  <section aria-labelledby="s1">
+    <h2 id="s1">一、Box Model 盒模型</h2>
+    <p class="legend">
+      由外而內：
+      <span style="background:#ffe9b8">margin 外距</span>
+      <span style="background:#c2410c;color:#fff">border 邊框</span>
+      <span style="background:#cfe8ff">padding 內距＋content 內容</span>
+    </p>
+    <div class="box-wrap">
+      <div class="box content-box">這是一個盒子：content 寬 200px，padding 20px，border 8px，margin 24px。</div>
     </div>
+    <pre><code>.box {
+  margin: 24px;
+  border: 8px solid #c2410c;
+  padding: 20px;
+  width: 200px;
+}</code></pre>
+
+    <h3>box-sizing 差異</h3>
+    <p>兩個盒子都設定 <code>width: 200px; padding: 20px; border: 8px</code>，實際佔用寬度卻不同：</p>
+    <div class="compare">
+      <div>
+        <div class="box content-box" id="b1" style="margin:0">content-box</div>
+        <p>實際寬度：<strong id="w1"></strong> px</p>
+      </div>
+      <div>
+        <div class="box border-box" id="b2" style="margin:0">border-box</div>
+        <p>實際寬度：<strong id="w2"></strong> px</p>
+      </div>
+    </div>
+    <pre><code>* { box-sizing: border-box; }  /* 常用設定：width 已包含 padding 與 border */</code></pre>
+  </section>
+
+  <section aria-labelledby="s2">
+    <h2 id="s2">二、三種常見版型</h2>
+
+    <h3>版型 A：單欄式</h3>
+    <div class="layout">
+      <div class="b hd">Header 導覽列</div>
+      <div class="b">內容區塊 1</div>
+      <div class="b">內容區塊 2</div>
+      <div class="b ft">Footer</div>
+    </div>
+
+    <h3>版型 B：雙欄式（側欄＋主內容）</h3>
+    <div class="layout">
+      <div class="b hd">Header 導覽列</div>
+      <div class="two-col">
+        <div class="b side">側欄／目錄</div>
+        <div class="b main">主要內容</div>
+      </div>
+      <div class="b ft">Footer</div>
+    </div>
+
+    <h3>版型 C：卡片式</h3>
+    <div class="layout">
+      <div class="b hd">Header 導覽列</div>
+      <div class="card-row">
+        <div class="b">卡片 1</div>
+        <div class="b">卡片 2</div>
+        <div class="b">卡片 3</div>
+      </div>
+      <div class="b ft">Footer</div>
+    </div>
+
+    <pre><code>.two-col { display: flex; }
+.two-col .side { flex: 0 0 28%; }
+.two-col .main { flex: 1; }
+.card-row { display: flex; flex-wrap: wrap; }
+.card-row .b { flex: 1 1 28%; }</code></pre>
+  </section>
+
+  <section aria-labelledby="s3">
+    <h2 id="s3">三、版型比較與選擇</h2>
+    <table>
+      <thead>
+        <tr><th scope="col">版型</th><th scope="col">優點</th><th scope="col">缺點</th><th scope="col">適合的網站</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">單欄式</th><td>閱讀動線單純、手機友善</td><td>電腦版寬螢幕留白多</td><td>文章、自我介紹</td></tr>
+        <tr><th scope="row">雙欄式</th><td>目錄與內容同時可見</td><td>手機需改成上下排列</td><td>課程筆記、文件</td></tr>
+        <tr><th scope="row">卡片式</th><td>一眼瀏覽多個項目</td><td>內容太長時不易閱讀</td><td>作品集、作業目錄</td></tr>
+      </tbody>
+    </table>
+
+    <h3>我的選擇</h3>
+    <p>我的作品集要展示多份課程作業，所以首頁選擇「卡片式」，每張卡片代表一個專案；各活動內頁則使用「單欄式」，讓說明與成果可以由上往下閱讀。</p>
+  </section>
+</main>
+
+<footer><p style="text-align:center">© 2026 Karin. All rights reserved.</p></footer>
+
+<script>
+  document.getElementById('w1').textContent = document.getElementById('b1').offsetWidth;
+  document.getElementById('w2').textContent = document.getElementById('b2').offsetWidth;
+</script>
 </body>
 </html>
